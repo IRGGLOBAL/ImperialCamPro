@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import 'app/my_app.dart';
+import 'app_module/bottom_bar/bottom_bar_controller.dart';
 import 'data/common/theme_controller.dart';
 
 
@@ -14,6 +15,9 @@ void main() async {
   await GetStorage.init();
   await initializeDateFormatting();
   //await PushNotificationService.initialize();
+  Get.put(BottomNavController());
+  //Get.put(BuyModeBottomNavigationBuyController());
   Get.lazyPut(() => ThemeController());
   runApp(const MyApp());
+
 }

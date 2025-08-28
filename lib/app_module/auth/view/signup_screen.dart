@@ -2,13 +2,18 @@ import 'package:campro/utils/Images/my_images.dart';
 import 'package:campro/utils/custom_widget/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../utils/Fonts/AppDimensions.dart';
 import '../../../utils/Paddings/AppPaddings.dart';
 import '../../../utils/Widgets/AppButton.dart';
+import '../../../utils/Widgets/AppText.dart';
 import '../../../utils/custom_widget/custom_text_field.dart';
 import '../../../utils/custom_widget/my_color.dart';
-import '../../../utils/custom_widget/round_button.dart';
+import '../../bottom_bar/bottom_bar_view.dart';
+import '../../home/home_view.dart';
 import '../controller/auth_controller.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'login_screen.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -35,7 +40,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
+              // Back Arrow Icon - Add this here
+              Align(
+                alignment: Alignment.centerLeft,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                    },
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: MyColor.primaryColor,
+                    size: 24,
+                  ),
+                ),
+              ),
               const SizedBox(height: 40),
               // Logo & Title
               Column(
@@ -45,22 +63,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 60,
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    MyStrings.signupnow.tr,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w500,
-                      color: MyColor.primaryColor,
-                    ),
+                  AppText(
+                    text: MyStrings.signupnow.tr,
+                    size: AppDimensions.FONT_SIZE_22, // or use 14 directly
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.primaryColor,
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    MyStrings.beginyourjourneytoday.tr,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: MyColor.textcolorsubtitle,
-                    ),
+                  AppText(
+                    text: MyStrings.beginyourjourneytoday.tr,
+                    size: AppDimensions.FONT_SIZE_14, // or use 14 directly
+                    color: MyColor.textcolorsubtitle,
                   ),
+
                 ],
               ),
 
@@ -68,13 +83,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    MyStrings.emailuserid.tr,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: MyColor.primaryColor,
-                    ),
+                  AppText(
+                    text: MyStrings.emailuserid.tr,
+                    size: AppDimensions.FONT_SIZE_14, // or use 14 directly
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.primaryColor,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),
@@ -85,6 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 needOutlineBorder: true,
                 //labelText: "",
                 autofillHints: [AutofillHints.email],
+                fillColor: MyColor.fillcolor,
                 hintText:  MyStrings.emailhinttext.tr ,
                 controller: controller.emailController,
                 focusNode: controller.emailFocusNode,
@@ -93,6 +108,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 textInputType: TextInputType.emailAddress,
                 radius: 15,
                 inputAction: TextInputAction.next,
+                prefixIcon: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  child: Icon(
+                    Icons.person,
+                    color: MyColor.primaryColor,
+                    size: 20,
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return null;
@@ -113,16 +136,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    MyStrings.password.tr,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: MyColor.primaryColor,
-                    ),
+                  AppText(
+                    text: MyStrings.welcomeback.tr,
+                    size: AppDimensions.FONT_SIZE_14, // or use 14 directly
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.primaryColor,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),
+
               const SizedBox(height: 5),
               // Password Field
               CustomTextField(
@@ -131,13 +154,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 //labelText: "",
                 autofillHints: [AutofillHints.email],
                 radius: 15,
+                fillColor: MyColor.fillcolor,
                 hintText:  MyStrings.passwordhinttext.tr ,
                 hintTextStyle: TextStyle(color: MyColor.hinttext),
                 controller: controller.passwordController,
                 focusNode: controller.passwordFocusNode,
+                isPassword: true, // Add this to enable password mode
+                isShowSuffixIcon: true,
                 //nextFocus: false,
                 textInputType: TextInputType.emailAddress,
                 inputAction: TextInputAction.next,
+                prefixIcon: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  child: Icon(
+                    Icons.lock,
+                    color: MyColor.primaryColor,
+                    size: 20,
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return null;
@@ -166,6 +200,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         agreeToTerms = val ?? false;
                       });
                     },
+                    side: MaterialStateBorderSide.resolveWith(
+                          (states) => BorderSide(
+                        width: 2,
+                        color: states.contains(MaterialState.selected)
+                            ? MyColor.secondaryColor
+                            : MyColor.checkboxborder, // Your custom inactive color
+                      ),
+                    ),
+                    checkColor:  MyColor.colorWhite,
+                    activeColor:  MyColor.secondaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),
@@ -176,13 +220,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         children: [
                           TextSpan(
                             text: MyStrings.agreeto.tr,
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(fontSize: 14,color: MyColor.hinttext),
                           ),
                           TextSpan(
                             text: MyStrings.termsandconditions.tr,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.red,
+                              color: MyColor.secondaryColor,
                             ),
                           ),
                         ],
@@ -195,7 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // Sign Up Button
               AppButton(
                 buttonName: MyStrings.signup.tr,
-                buttonColor: agreeToTerms ? Colors.red : Colors.grey, // Handle disabled state
+                buttonColor: agreeToTerms ? MyColor.secondaryColor : Colors.grey, // Handle disabled state
                 textColor: Colors.white,
                 textSize: 16,
                 fontWeight: FontWeight.w500,
@@ -203,7 +247,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 buttonWidth: double.infinity, // Full width
                 onTap: agreeToTerms ? () {
                   // Navigate or call sign up logic
-                } : () {},
+                } : () {
+                 // Get.to(BuyModeBottomNavigationBuyView());
+                  Get.to(MyHomePage());
+                },
                 elevation: 0, // Remove shadow to match RoundedButton's elevation: 0
                 borderWidth: 0, // No border
                 isCenter: true, // Center the text
@@ -231,40 +278,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 fontWeight: FontWeight.w500,
                 fontFamily: "Work Sans", // Or your preferred font family
               ),
-              // RoundedButton(
-              //   text: MyStrings.signupwithgoogle.tr,
-              //   press: () {
-              //     // Google sign in logic
-              //   },
-              //   isOutlined: true,
-              //   borderColor: const Color(0xFFE0E0E0),
-              //   color: Colors.transparent,
-              //   textColor: Colors.black,
-              //   // horizontalPadding: 0,
-              //   // verticalPadding: 16,
-              //   // cornerRadius: 30,
-              //   textStyle: TextStyle(
-              //     fontWeight: FontWeight.w500,
-              //     color: Colors.black,
-              //   ),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       SvgPicture.asset(
-              //         MyImages.googleicon,
-              //         height: 20,
-              //       ),
-              //       const SizedBox(width: 8), // Add some spacing between icon and text
-              //       Text(
-              //         MyStrings.signupwithgoogle.tr,
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           color: Colors.black,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+
 
               SizedBox(height: 20),
 
@@ -272,20 +286,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    MyStrings.alreadyhaveaccount.tr,
-                    style: TextStyle(color: Colors.black54),
+                  AppText(
+                    text: MyStrings.alreadyhaveaccount.tr,
+                    size: AppDimensions.FONT_SIZE_14,
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.hinttext,
+
                   ),
-                  TextButton(
-                    onPressed: () {
-                      // Navigate to login
+                  SizedBox(width: 5,),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(LoginScreen());
                     },
-                    child:  Text(
-                      MyStrings.login.tr,
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child:
+                    AppText(
+                      text: MyStrings.login.tr,
+                      size: AppDimensions.FONT_SIZE_14,
+                      fontWeight: FontWeight.bold,
+                      color: MyColor.secondaryColor,
+
                     ),
                   )
                 ],

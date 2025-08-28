@@ -1,62 +1,69 @@
+
+import 'package:campro/utils/Images/my_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../utils/custom_widget/my_color.dart';
 import 'bottom_bar_controller.dart';
 
-class CustomBottomBar extends StatelessWidget {
-  final BottomNavController controller = Get.find();
-
+class CustomBottomBar extends GetView<BottomNavController> {
   final List<String> iconPaths = [
-    'assets/icons/home.svg',
-    'assets/icons/search.svg',
-    'assets/icons/notifications.svg',
-    'assets/icons/profile.svg',
+    MyImages.home,
+    MyImages.layer,
+    MyImages.library,
+    MyImages.setting,
+
   ];
 
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return Container(
-        margin: const EdgeInsets.all(20),
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-        decoration: BoxDecoration(
+          decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 10,
-              offset: Offset(0, 10),
-            ),
-          ],
-        ),
+          borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(5),
+      topRight: Radius.circular(5),),
+            border: Border.all(color: MyColor.primaryColor.withValues(alpha: 0.1) , width: 1),
+
+          ),
+
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(iconPaths.length, (index) {
             final isSelected = controller.selectedIndex.value == index;
             return GestureDetector(
-              onTap: () {},
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 200),
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: isSelected ? MyColor.buttonbackgroun : Colors.transparent,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Container(
-                  padding: EdgeInsets.all(2),
-                  height: 24, // or any consistent size like 28
-                  width: 24,
-                  child: SvgPicture.asset(
+              onTap: () {
+                controller.changeIndex(index);
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // --- Icon ---
+                  SvgPicture.asset(
                     iconPaths[index],
-                    fit: BoxFit.contain,
+                    height: 30,
+                    width: 30,
                     colorFilter: ColorFilter.mode(
-                      isSelected ? MyColor.primaryColor : MyColor.buttonbackgroun,
+                      isSelected ? Colors.red : Colors.grey,
                       BlendMode.srcIn,
                     ),
                   ),
-                ),
+                  const SizedBox(height: 6),
+                  // --- Dot Indicator ---
+                  if (isSelected)
+                    Container(
+                      height: 6,
+                      width: 6,
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                    )
+                  else
+                    const SizedBox(height: 6), // keeps alignment equal
+                ],
               ),
             );
           }),

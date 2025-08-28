@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class MyColor {
   ///Main Colors
   static const Color primaryColor = Color(0xFF000000);
-  static const Color secondaryColor = Color(0xFFD92027);
+  static const Color secondaryColor = Color(0xFFFF0000);
+  //static const Color secondaryColor = Color(0xFFD92027);
 
   static const Color textcolortitle = Color(0xFF0C1523);
   static const Color textcolorsubtitle = Color(0xFF667085);
@@ -37,8 +38,8 @@ class MyColor {
   //Text
   static const Color primaryTextColor = Color(0xff262626);
   static const Color primaryTextColor2 = Color(0xff2E3232);
-  static const Color primaryTextColo3 = Color(0xff363536);
-  static const Color text = Color(0xff2E3232);
+  static const Color fillcolor = Color(0xffFCFCFD);
+  static const Color checkboxborder = Color(0xffB9BDC7);
   static const Color contentTextColor = Color(0xff777777);
   static const Color lineColors = Color(0xffF2F2F2);
   static const Color lineColor = Color(0xffECECEC);
@@ -87,7 +88,7 @@ class MyColor {
   static const Color colorRed2 = Color(0xFFF33333);
   static const Color colorRed3 = Color(0xffEA5455);
   static const Color colorYellow = Color(0xFFFEC400);
-  static const Color colorblue = Color(0xFF96F3FF);
+  static const Color colorblue = Color(0xFF156CD7);
   static const Color colorOrange = Colors.orange;
   static const Color colorAmber = Colors.amber;
   static const Color colorGrey = Color(0xff555555);

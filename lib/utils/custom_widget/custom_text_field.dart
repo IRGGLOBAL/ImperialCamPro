@@ -201,8 +201,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
               padding: const EdgeInsets.only(right: 5.0),
               child: Center(
                   child: obscureText
-                      ? Icon(Icons.visibility)
-                      : Icon(Icons.visibility_off)
+                      ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
+                      : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
 
                 // Text(
                 //   (obscureText
@@ -326,8 +326,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     padding:
                     const EdgeInsets.only(right: 4.0),
                     child: obscureText
-                        ? Icon(Icons.visibility)
-                        : Icon(Icons.visibility_off)
+                        ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
+                        : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
 
                   // Text(
                   //   (obscureText ? "Show" : "Hide").tr,
@@ -459,8 +459,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       padding:
                       const EdgeInsets.only(right: 4.0),
                       child: obscureText
-                          ? Icon(Icons.visibility)
-                          : Icon(Icons.visibility_off)
+                          ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
+                          : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
 
                     // Text(
                     //   (obscureText ? "Show" : "Hide").tr,
@@ -557,8 +557,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
               padding: const EdgeInsets.only(right: 4.0),
               child: Center(
                   child: obscureText
-                      ? Icon(Icons.visibility)
-                      : Icon(Icons.visibility_off)
+                      ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
+                      : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
                 // Text(
                 //   (obscureText ? "Show" : "Hide").tr,
                 //   style: boldDefault.copyWith(
@@ -653,8 +653,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             child: Padding(
                 padding: const EdgeInsets.only(right: 4.0),
                 child: obscureText
-                    ? Icon(Icons.visibility)
-                    : Icon(Icons.visibility_off)
+                    ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
+                    : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
 
               // Text(
               //   (obscureText ? "Show" : "Hide").tr,

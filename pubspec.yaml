@@ -97,6 +97,7 @@ flutter:
   assets:
     - assets/logo/
     - assets/icons/
+    - assets/images/
     - assets/logo/imperialcampro.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see

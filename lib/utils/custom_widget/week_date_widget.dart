@@ -40,7 +40,7 @@ class _WeekDatePickerState extends State<WeekDatePicker> {
               onTap: () => selectedIndex.value = index,
               child: Container(
                 width: 60,
-                padding:  EdgeInsets.symmetric(vertical: 12,horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
                 decoration: BoxDecoration(
                   color: isSelected ? MyColor.bluesh : MyColor.lineColors,
                   borderRadius: BorderRadius.circular(5),
@@ -51,9 +51,9 @@ class _WeekDatePickerState extends State<WeekDatePicker> {
                     Text(
                       DateFormat('E').format(date),
                       style: TextStyle(
-                        fontSize: 14,
-                        color: isSelected ? MyColor.colorWhite : Colors.grey,
-                        fontWeight: FontWeight.w400
+                          fontSize: 14,
+                          color: isSelected ? MyColor.colorWhite : Colors.grey,
+                          fontWeight: FontWeight.w400
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -62,7 +62,8 @@ class _WeekDatePickerState extends State<WeekDatePicker> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
-                        color: isSelected ? MyColor.text : MyColor.colorBlack,
+                        // Replace MyColor.text with an appropriate color from your MyColor class
+                        color: isSelected ? MyColor.primaryColor : MyColor.colorBlack,
                       ),
                     ),
                   ],
