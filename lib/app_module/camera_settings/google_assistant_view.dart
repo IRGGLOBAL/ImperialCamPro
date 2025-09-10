@@ -39,20 +39,125 @@ class GoogleAssistantView extends StatelessWidget {
       body: SingleChildScrollView(
         padding: AppPaddings.defaultPadding,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              MyImages.alexa,
-              height: 100,
+            Row(
+              mainAxisAlignment:  MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  MyImages.googleassistant,
+                  height: 100,
+                ),
+              ],
             ),
             const SizedBox(height: 30),
             AppText(
-              text: MyStrings.alexacontent.tr,
+              text: MyStrings.googleassistantcontent1.tr,
               size: AppDimensions.FONT_SIZE_12,
               fontWeight: FontWeight.w500,
               color: MyColor.primaryColor,
             ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent2.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.secondaryColor,
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent3.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent4.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.hintTextColor,
+            ),
+            const SizedBox(height: 20),
+            Container(
+              // margin: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(vertical: 100),
+              decoration: BoxDecoration(
+                color: MyColor.lineColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent5.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.hintTextColor,
+            ),
+            const SizedBox(height: 20),
+            Container(
+              // margin: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(vertical: 100),
+              decoration: BoxDecoration(
+                color: MyColor.lineColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent6.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.hintTextColor,
+            ),
+            const SizedBox(height: 20),
+            Container(
+              // margin: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(vertical: 100),
+              decoration: BoxDecoration(
+                color: MyColor.lineColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent7.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.hintTextColor,
+            ),
+            const SizedBox(height: 20),
+            Container(
+              // margin: EdgeInsets.symmetric(horizontal: 40),
+              padding: EdgeInsets.symmetric(vertical: 100),
+              decoration: BoxDecoration(
+                color: MyColor.lineColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent8.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent9.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.hintTextColor,
+            ),
+            const SizedBox(height: 20),
+            AppText(
+              text: MyStrings.googleassistantcontent0.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.secondaryColor,
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:campro/app_module/auth/view/reset_password_confirmation_screen.dart';
-import 'package:campro/app_module/auth/view/signup_screen.dart';
 import 'package:campro/utils/Images/my_images.dart';
 import 'package:campro/utils/Paddings/AppPaddings.dart';
 import 'package:campro/utils/custom_widget/strings.dart';
@@ -11,8 +10,6 @@ import '../../../utils/Widgets/AppText.dart';
 import '../../../utils/custom_widget/custom_text_field.dart';
 import '../../../utils/custom_widget/my_color.dart';
 import '../controller/auth_controller.dart';
-import 'forgot_password.dart';
-
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});

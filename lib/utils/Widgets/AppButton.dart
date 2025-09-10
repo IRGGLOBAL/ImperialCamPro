@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
     this.iconSize = 25,
     this.iconWidth = 21,
     this.iconHeight = 14,
-    this.paddingButton = 0,
+    this.paddingButton = 8, // Default padding between icon and text
     this.fontFamily = "Work Sans",
     required this.onTap,
     this.textSize = 18,
@@ -65,88 +65,84 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: buttonHeight,
-        width: buttonWidth,
-        decoration: BoxDecoration(
-            color: buttonColor,
-            boxShadow: hasShadow ? [
-              BoxShadow(
-                  spreadRadius: 1,
-                  blurRadius: 4,
-                  color: MyColor.hintTextColor)
-            ] : null, // Conditionally add shadow
-            borderRadius: buttonRadius == BorderRadius.zero
-                ? AppBorderRadius.BORDER_RADIUS_10
-                : buttonRadius,
-            border: Border.all(
-              width: borderWidth,
-              color: borderColor,
-            )),
-        child: CupertinoButton(
-          borderRadius: buttonRadius == BorderRadius.zero
-              ? AppBorderRadius.BORDER_RADIUS_10
-              : buttonRadius,
-          padding: EdgeInsets.zero,
-          color: buttonColor,
-          onPressed: onTap,
-          child: Padding(
-            padding: isCenter
-                ? const EdgeInsets.symmetric(horizontal: 16)
-                : EdgeInsets.only(left: paddingButton == 0 ? 0 : 15),
-            child: Row(
-              mainAxisAlignment: paddingButton == 0
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                !isSuffix
-                    ? isIcon
-                        ? iconImage == ""
-                            ? Icon(
-                                icon,
-                                color: iconColor,
-                                size: iconSize,
-                              )
-                            :  SvgPicture.asset(
-                                iconImage,
-                                //color: iconColor,
-                                height: iconSize,
-                              )
-                        : Container()
-                    : Container(),
-                isCenter
-                    ? const Spacer()
-                    : SizedBox(
-                        width: paddingButton == 0
-                            ? isIcon
-                                ? 10
-                                : 0
-                            : paddingButton,
-                      ),
-                isSuffix
-                    ? SizedBox(
-                        width: Get.width * 0.6,
-                        child: Center(
-                          child: AppText(
-                              text: buttonName,
-                              color: textColor,
-                              fontFamily: fontFamily,
-                              fontWeight: fontWeight,
-                              size: textSize),
-                        ),
-                      )
-                    : Center(
-                        child: AppText(
-                            text: buttonName,
-                            color: textColor,
-                            fontFamily: fontFamily,
-                            fontWeight: fontWeight,
-                            size: textSize),
-                      ),
-                isCenter ? const Spacer() : Container(),
-              ],
-            ),
+      height: buttonHeight,
+      width: buttonWidth,
+      decoration: BoxDecoration(
+        color: buttonColor,
+        boxShadow: hasShadow ? [
+          BoxShadow(
+              spreadRadius: 1,
+              blurRadius: 4,
+              color: MyColor.hintTextColor
+          )
+        ] : null,
+        borderRadius: buttonRadius == BorderRadius.zero
+            ? AppBorderRadius.BORDER_RADIUS_10
+            : buttonRadius,
+        border: Border.all(
+          width: borderWidth,
+          color: borderColor,
+        ),
+      ),
+      child: CupertinoButton(
+        borderRadius: buttonRadius == BorderRadius.zero
+            ? AppBorderRadius.BORDER_RADIUS_10
+            : buttonRadius,
+        padding: EdgeInsets.zero,
+        color: buttonColor,
+        onPressed: onTap,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (isIcon && !isSuffix) // Icon on left
+                iconImage.isEmpty
+                    ? Icon(
+                  icon,
+                  color: iconColor,
+                  size: iconSize,
+                )
+                    : SvgPicture.asset(
+                  iconImage,
+                  height: iconSize,
+                  width: iconSize,
+                  color: iconColor,
+                ),
+
+              if (isIcon && !isSuffix) // Space after left icon
+                SizedBox(width: paddingButton),
+
+              // Text
+              AppText(
+                text: buttonName,
+                color: textColor,
+                fontFamily: fontFamily,
+                fontWeight: fontWeight,
+                size: textSize,
+              ),
+
+              if (isIcon && isSuffix) // Space before right icon
+                SizedBox(width: paddingButton),
+
+              if (isIcon && isSuffix) // Icon on right
+                iconImage.isEmpty
+                    ? Icon(
+                  icon,
+                  color: iconColor,
+                  size: iconSize,
+                )
+                    : SvgPicture.asset(
+                  iconImage,
+                  height: iconSize,
+                  width: iconSize,
+                  color: iconColor,
+                ),
+            ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -9,7 +9,6 @@ import '../../../utils/Fonts/AppDimensions.dart';
 import '../../../utils/Images/my_images.dart';
 import '../../../utils/Widgets/AppButton.dart';
 import '../../../utils/Widgets/AppText.dart';
-import '../../../utils/custom_widget/custom_text_field.dart';
 import '../../../utils/custom_widget/my_color.dart';
 import '../controller/auth_controller.dart';
 

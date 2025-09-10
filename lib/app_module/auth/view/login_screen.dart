@@ -68,14 +68,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       topLeft: Radius.circular(5),
                       topRight: Radius.circular(5),
                     ),
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //     color: Colors.black12,
-                    //     blurRadius: 5,
-                    //     spreadRadius: 0,
-                    //     offset: Offset(0, -4),
-                    //   ),
-                    // ],
                   ),
                   child: SingleChildScrollView(
                     controller: scrollController,
@@ -115,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
 
                         const SizedBox(height: 30),
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -127,7 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
+
                         const SizedBox(height: 5),
+
                         // Email Field
                         CustomTextField(
                           animatedLabel: false,
@@ -167,7 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             return;
                           },
                         ),
+
                         const SizedBox(height: 20),
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [

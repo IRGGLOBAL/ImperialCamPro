@@ -249,7 +249,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   // Navigate or call sign up logic
                 } : () {
                  // Get.to(BuyModeBottomNavigationBuyView());
-                  Get.to(MyHomePage());
+                  Get.to(BottomNavBarView());
                 },
                 elevation: 0, // Remove shadow to match RoundedButton's elevation: 0
                 borderWidth: 0, // No border

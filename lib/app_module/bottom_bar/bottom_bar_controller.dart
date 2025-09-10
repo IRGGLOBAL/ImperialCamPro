@@ -22,19 +22,21 @@
 
 
 
+import 'package:campro/app_module/auth/view/forgot_password.dart';
+import 'package:campro/app_module/auth/view/signup_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import '../app_settings/app_settings.dart';
 import '../home/home_view.dart';
 
 class BottomNavController extends GetxController {
   var selectedIndex = 0.obs;
 
-  // Use a getter instead of creating instances immediately
   List<Widget> get pages => [
     MyHomePage(),
-    Container(),
-    Container(),
-    Container(),
+    ForgotPassword(),
+    SignUpScreen(),
+    AppSettings(),
   ];
 
   void changeIndex(int index) {

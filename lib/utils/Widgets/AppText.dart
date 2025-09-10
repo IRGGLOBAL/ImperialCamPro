@@ -5,19 +5,21 @@ import '../../Utils/app_imports/app_imports.dart';
 import '../Fonts/AppDimensions.dart';
 import '../custom_widget/my_color.dart';
 
-Widget AppText(
-    {required String text,
-      double size = AppDimensions.FONT_SIZE_18,
-      TextDecoration underLine = TextDecoration.none,
-      TextAlign textAlign = TextAlign.left,
-      FontWeight fontWeight = FontWeight.w500,
-      String fontFamily = "Inter",
-      FontStyle fontStyle = FontStyle.normal,
-      int? maxLines,
-      TextOverflow? overflow,
-      Color? color,
-      TextStyle? style}) {
-  return color == null
+Widget AppText({
+  required String text,
+  double size = AppDimensions.FONT_SIZE_18,
+  TextDecoration underLine = TextDecoration.none,
+  TextAlign textAlign = TextAlign.left,
+  FontWeight fontWeight = FontWeight.w500,
+  String fontFamily = "Inter",
+  FontStyle fontStyle = FontStyle.normal,
+  int? maxLines,
+  TextOverflow? overflow,
+  Color? color,
+  TextStyle? style,
+  GestureTapCallback? onTap, // Add onTap parameter
+}) {
+  final textWidget = color == null
       ? Text(text,
       textAlign: textAlign,
       maxLines: maxLines,
@@ -43,6 +45,14 @@ Widget AppText(
             fontStyle: fontStyle,
             color: color),
   );
+
+  // Wrap with GestureDetector if onTap is provided
+  return onTap != null
+      ? GestureDetector(
+    onTap: onTap,
+    child: textWidget,
+  )
+      : textWidget;
 }
 
 class HyperTxt extends StatelessWidget {

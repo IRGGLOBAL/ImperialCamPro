@@ -1,0 +1,31 @@
+<svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_28_777)">
+<rect x="0.790771" y="0.0232544" width="46.6453" height="48.2002" rx="23.3227" fill="white"/>
+<g opacity="0.59" filter="url(#filter0_f_28_777)">
+<rect x="2.86377" y="28.5287" width="46.6453" height="29.0238" fill="#FF0000"/>
+</g>
+<path d="M28.8445 38.6079C26.6303 38.6079 24.8332 36.8128 24.8332 34.5961C24.8332 27.9973 19.4612 22.6252 12.8628 22.6252C10.6461 22.6252 8.85107 20.8297 8.85107 18.6135C8.85107 16.3973 10.6461 14.5993 12.8628 14.5993C23.8887 14.5993 32.8582 23.5703 32.8582 34.5961C32.8582 36.8128 31.0636 38.6079 28.8445 38.6079Z" fill="#FF0000"/>
+<mask id="mask0_28_777" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="8" y="0" width="40" height="39">
+<path d="M8.81885 0.0232544H47.4361V38.6658H8.81885V0.0232544Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_28_777)">
+<path d="M43.4239 38.6078C41.2038 38.6078 39.4097 36.8128 39.4097 34.5961C39.4097 19.9582 27.5027 8.04918 12.8623 8.04918C10.6457 8.04918 8.85059 6.25216 8.85059 4.035C8.85059 1.82077 10.6457 0.0237427 12.8623 0.0237427C31.9253 0.0237427 47.4352 15.5331 47.4352 34.5961C47.4352 36.8128 45.6377 38.6078 43.4239 38.6078Z" fill="#FF0000"/>
+</g>
+<mask id="mask1_28_777" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="7" y="28" width="12" height="13">
+<path d="M7.01001 28.7274H18.7387V40.4492H7.01001V28.7274Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_28_777)">
+<path d="M18.7163 34.596C18.7163 37.8279 16.0955 40.4491 12.8626 40.4491C9.62878 40.4491 7.01001 37.8279 7.01001 34.596C7.01001 31.3621 9.62878 28.7438 12.8626 28.7438C16.0955 28.7438 18.7163 31.3621 18.7163 34.596Z" fill="#FF0000"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_28_777" x="-36.422" y="-10.757" width="125.217" height="107.595" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="19.6429" result="effect1_foregroundBlur_28_777"/>
+</filter>
+<clipPath id="clip0_28_777">
+<rect x="0.790771" y="0.0232544" width="46.6453" height="48.2002" rx="23.3227" fill="white"/>
+</clipPath>
+</defs>
+</svg>

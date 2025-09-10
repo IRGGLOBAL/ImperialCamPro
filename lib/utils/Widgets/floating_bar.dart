@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'floating_bar_items.dart';
 
-import 'package:flutter/material.dart';
-
-
 typedef ItemBuilder = Widget Function(
     BuildContext context, int index, FloatingNavbarItem items);
 

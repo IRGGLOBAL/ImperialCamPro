@@ -1,6 +1,7 @@
 import 'package:campro/utils/custom_widget/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../data/common/theme_controller.dart';
 import '../utils.dart';
@@ -39,7 +40,7 @@ class CustomTextField extends StatefulWidget {
   final bool isRequired;
   List<String>? autofillHints;
 
-// edited /20-7-23
+  // edited /20-7-23
   final Widget? prefixIcon;
   final Widget? suffixWidget;
   final BoxConstraints? suffixIconConstraints;
@@ -55,6 +56,11 @@ class CustomTextField extends StatefulWidget {
   final bool shadowBox;
   double? radius;
 
+  // NEW: SVG suffix icon support
+  final String? suffixSvgIcon;
+  final Color? suffixSvgColor;
+  final double? suffixSvgSize;
+  final bool clearTextOnSuffixTap; // NEW: Option to clear text on tap
 
   //
   final bool isShowInstructionWidget;
@@ -62,52 +68,57 @@ class CustomTextField extends StatefulWidget {
   final bool showLabel;
   final EdgeInsetsGeometry? contentPadding;
 
-  CustomTextField(
-      {super.key,
-        this.showLabel = true,
-        this.labelText,
-        this.labelTextStyle,
-        this.readOnly = false,
-        this.fillColor = MyColor.colorWhite,
-        this.focusColor,
-        required this.onChanged,
-        this.hintText,
-        this.hintTextStyle,
-        this.controller,
-        this.focusNode,
-        this.nextFocus,
-        this.validator,
-        this.textInputType,
-        this.isEnable = true,
-        this.isPassword = false,
-        this.isShowSuffixIcon = false,
-        this.isIcon = false,
-        this.onSuffixTap,
-        this.onTap,
-        this.isSearch = false,
-        this.isCountryPicker = false,
-        this.inputAction = TextInputAction.next,
-        this.needOutlineBorder = false,
-        this.needRequiredSign = false,
-        this.maxLines = 1,
-        this.animatedLabel = false,
-        this.isRequired = false,
-        this.prefixIcon,
-        this.suffixWidget,
-        this.suffixIconConstraints,
-        this.isDense,
-        this.isborderNone = false,
-        this.isPin = false,
-        this.onSubmit,
-        this.radius = Dimensions.mediumRadius,
-        this.inputFormatters,
-        this.shadowBox = false,
-        this.autofillHints,
-        this.isShowInstructionWidget = true,
-        this.instructions,
-        this.autofillHintStyle,
-        this.contentPadding,
-      });
+  CustomTextField({
+    super.key,
+    this.showLabel = true,
+    this.labelText,
+    this.labelTextStyle,
+    this.readOnly = false,
+    this.fillColor = MyColor.colorWhite,
+    this.focusColor,
+    required this.onChanged,
+    this.hintText,
+    this.hintTextStyle,
+    this.controller,
+    this.focusNode,
+    this.nextFocus,
+    this.validator,
+    this.textInputType,
+    this.isEnable = true,
+    this.isPassword = false,
+    this.isShowSuffixIcon = false,
+    this.isIcon = false,
+    this.onSuffixTap,
+    this.onTap,
+    this.isSearch = false,
+    this.isCountryPicker = false,
+    this.inputAction = TextInputAction.next,
+    this.needOutlineBorder = false,
+    this.needRequiredSign = false,
+    this.maxLines = 1,
+    this.animatedLabel = false,
+    this.isRequired = false,
+    this.prefixIcon,
+    this.suffixWidget,
+    this.suffixIconConstraints,
+    this.isDense,
+    this.isborderNone = false,
+    this.isPin = false,
+    this.onSubmit,
+    this.radius = Dimensions.mediumRadius,
+    this.inputFormatters,
+    this.shadowBox = false,
+    this.autofillHints,
+    this.isShowInstructionWidget = true,
+    this.instructions,
+    this.autofillHintStyle,
+    this.contentPadding,
+    // NEW: SVG suffix icon parameters
+    this.suffixSvgIcon,
+    this.suffixSvgColor,
+    this.suffixSvgSize = 22,
+    this.clearTextOnSuffixTap = false,
+  });
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -118,13 +129,87 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   ThemeController themeController = Get.find<ThemeController>();
 
-// build the state
+  // Helper method to handle suffix icon tap
+  void _handleSuffixTap() {
+    if (widget.clearTextOnSuffixTap && widget.controller != null) {
+      // Clear the text field
+      widget.controller!.clear();
+      if (widget.onChanged != null) {
+        widget.onChanged!('');
+      }
+    }
+
+    // Call the original onSuffixTap callback if provided
+    if (widget.onSuffixTap != null) {
+      widget.onSuffixTap!();
+    }
+  }
+
+  // Helper method to build SVG suffix icon
+  Widget? _buildSuffixIcon() {
+    // Show clear icon when text is present and clearTextOnSuffixTap is enabled
+    final bool showClearIcon = widget.clearTextOnSuffixTap &&
+        widget.controller != null &&
+        widget.controller!.text.isNotEmpty;
+   print("showClearIcon: ${showClearIcon}");
+    if (showClearIcon || (widget.suffixSvgIcon != null && widget.suffixSvgIcon!.isNotEmpty)) {
+      return GestureDetector(
+        onTap: _handleSuffixTap,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child:
+          showClearIcon
+              ? SvgPicture.asset(
+            widget.suffixSvgIcon!,
+            color: widget.suffixSvgColor ?? MyColor.getPrimaryColor(),
+            width: widget.suffixSvgSize,
+            height: widget.suffixSvgSize,
+          )
+              :SizedBox(),
+        ),
+      );
+    }
+
+    if (widget.isShowSuffixIcon) {
+      if (widget.isPassword) {
+        return GestureDetector(
+          onTap: _toggle,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 5.0),
+            child: Center(
+                child: obscureText
+                    ? Icon(Icons.visibility_off_outlined,
+                    color: MyColor.textcolorsubtitle, size: 16)
+                    : Icon(Icons.visibility_outlined,
+                    color: MyColor.textcolorsubtitle, size: 16)
+            ),
+          ),
+        );
+      } else if (widget.isIcon) {
+        return IconButton(
+          onPressed: widget.onSuffixTap,
+          icon: Icon(
+            widget.isSearch
+                ? Icons.search_outlined
+                : widget.isCountryPicker
+                ? Icons.arrow_drop_down_outlined
+                : Icons.camera_alt_outlined,
+            size: 25,
+            color: MyColor.getPrimaryColor(),
+          ),
+        );
+      }
+    }
+
+    return widget.suffixWidget;
+  }
+
   @override
   Widget build(BuildContext context) {
     return widget.needOutlineBorder
         ? widget.animatedLabel
         ? widget.shadowBox == false
-        ?  Theme(
+        ? Theme(
       data: Theme.of(context).copyWith(
         textTheme: Theme.of(context).textTheme.copyWith(
           bodyMedium: widget.autofillHintStyle ??
@@ -140,8 +225,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         autofillHints: widget.autofillHints,
         maxLines: widget.maxLines,
         readOnly: widget.readOnly,
-        style:
-        regularDefault.copyWith(color: MyColor.getTextColor()),
+        style: regularDefault.copyWith(
+            color: MyColor.getTextColor()),
         onTap: widget.onTap,
         cursorColor: MyColor.getTextColor(),
         controller: widget.controller,
@@ -154,8 +239,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         obscureText: widget.isPassword ? obscureText : false,
         inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
-          contentPadding: widget.contentPadding ??  EdgeInsetsDirectional.only(
-              top: 0, start: 15, end: 15, bottom: 0),
+
+          contentPadding: widget.contentPadding ??
+              EdgeInsetsDirectional.only(
+                  top: 0, start: 15, end: 15, bottom: 0),
           labelText: widget.labelText?.tr ?? '',
           labelStyle: widget.labelTextStyle ??
               regularDefault.copyWith(
@@ -164,11 +251,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           filled: true,
           hintText: widget.hintText?.tr ?? '',
           hintStyle: widget.hintTextStyle ??
-              TextStyle(color: MyColor.getRideSubTitleColor()),
+              TextStyle(
+                  color: MyColor.getRideSubTitleColor()),
           border: OutlineInputBorder(
             borderSide: BorderSide(
               width: 1.5,
-              color: MyColor.secondaryColor.withValues(alpha: 0.9),
+              color: MyColor.secondaryColor
+                  .withValues(alpha: 0.9),
             ),
             borderRadius: BorderRadius.circular(widget.radius!),
           ),
@@ -185,7 +274,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   color: MyColor.secondaryColor
                       .withValues(alpha: 0.9)),
               borderRadius: BorderRadius.circular(widget.radius!)),
-          prefixIconConstraints: BoxConstraints.loose(Size(40, 40)),
+          prefixIconConstraints:
+          BoxConstraints.loose(Size(40, 40)),
           prefixIcon: widget.prefixIcon,
           suffixIconConstraints: widget.suffixIconConstraints ??
               BoxConstraints(
@@ -193,50 +283,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   maxWidth: 70,
                   minHeight: 40,
                   minWidth: 50),
-          suffixIcon: widget.isShowSuffixIcon
-              ? widget.isPassword
-              ? GestureDetector(
-            onTap: _toggle,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 5.0),
-              child: Center(
-                  child: obscureText
-                      ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                      : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-
-                // Text(
-                //   (obscureText
-                //       ? MyStrings.show.tr
-                //       : MyStrings.hide.tr),
-                //   style: boldDefault.copyWith(
-                //     color: obscureText
-                //         ? MyColor.primaryColor
-                //         : MyColor.hintTextColor,
-                //   ),
-                // ),
-              ),
-            ),
-          )
-              : widget.isIcon
-              ? IconButton(
-            onPressed: widget.onSuffixTap,
-            icon: Icon(
-              widget.isSearch
-                  ? Icons.search_outlined
-                  : widget.isCountryPicker
-                  ? Icons.arrow_drop_down_outlined
-                  : Icons.camera_alt_outlined,
-              size: 25,
-              color: MyColor.getPrimaryColor(),
-            ),
-          )
-              : widget.suffixWidget
-              : null,
+          suffixIcon: _buildSuffixIcon(),
         ),
         onFieldSubmitted: (text) => widget.nextFocus != null
             ? FocusScope.of(context).requestFocus(widget.nextFocus)
             : null,
-        onChanged: (text) => widget.onChanged!(text),
+        onChanged: (text) {
+          if (widget.onChanged != null) {
+            widget.onChanged!(text);
+          }
+          // Update the UI to show/hide clear icon based on text presence
+          if (widget.clearTextOnSuffixTap) {
+            setState(() {});
+          }
+        },
       ),
     )
         : Stack(
@@ -279,15 +339,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
             obscureText: widget.isPassword ? obscureText : false,
             onTap: widget.onTap,
             decoration: InputDecoration(
-              contentPadding: widget.contentPadding ??  EdgeInsets.only(
-                  top: 0, left: 15, right: 15, bottom: 0),
+              contentPadding: widget.contentPadding ??
+                  EdgeInsets.only(
+                      top: 0, left: 15, right: 15, bottom: 0),
               labelText: widget.labelText,
               labelStyle: regularDefault.copyWith(
                   color: MyColor.getLabelTextColor()),
               fillColor: widget.fillColor,
               filled: true,
               hintStyle: widget.hintTextStyle ??
-                  TextStyle(color: MyColor.getRideSubTitleColor()),
+                  TextStyle(
+                      color: MyColor.getRideSubTitleColor()),
               border: OutlineInputBorder(
                   borderSide: const BorderSide(
                       color: MyColor.textFieldDisableBorderColor,
@@ -318,49 +380,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   BorderRadius.circular(widget.radius!)),
               prefixIconConstraints:
               BoxConstraints.loose(Size(40, 40)),
-              suffixIcon: widget.isShowSuffixIcon
-                  ? widget.isPassword
-                  ? GestureDetector(
-                onTap: _toggle,
-                child: Padding(
-                    padding:
-                    const EdgeInsets.only(right: 4.0),
-                    child: obscureText
-                        ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                        : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-
-                  // Text(
-                  //   (obscureText ? "Show" : "Hide").tr,
-                  //   style: boldDefault.copyWith(
-                  //     color: obscureText
-                  //         ? MyColor.primaryColor
-                  //         : MyColor.hintTextColor,
-                  //   ),
-                  // ),
-                ),
-              )
-                  : widget.isIcon
-                  ? IconButton(
-                onPressed: widget.onSuffixTap,
-                icon: Icon(
-                  widget.isSearch
-                      ? Icons.search_outlined
-                      : widget.isCountryPicker
-                      ? Icons
-                      .arrow_drop_down_outlined
-                      : Icons.camera_alt_outlined,
-                  size: 25,
-                  color: MyColor.getPrimaryColor(),
-                ),
-              )
-                  : null
-                  : null,
+              suffixIcon: _buildSuffixIcon(),
             ),
             onFieldSubmitted: (text) => widget.nextFocus != null
                 ? FocusScope.of(context)
                 .requestFocus(widget.nextFocus)
                 : null,
-            onChanged: (text) => widget.onChanged!(text),
+            onChanged: (text) {
+              if (widget.onChanged != null) {
+                widget.onChanged!(text);
+              }
+              // Update the UI to show/hide clear icon based on text presence
+              if (widget.clearTextOnSuffixTap) {
+                setState(() {});
+              }
+            },
           ),
         ),
       ],
@@ -368,16 +402,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
         : Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.showLabel && widget.labelText != null && widget.labelText!.isNotEmpty) // Modified condition
+        if (widget.showLabel &&
+            widget.labelText != null &&
+            widget.labelText!.isNotEmpty)
           LabelText(
             text: widget.labelText.toString(),
             isRequired: widget.isRequired,
           ),
-        // LabelText(
-        //   text: widget.labelText.toString(),
-        //   isRequired: widget.isRequired,
-        // ),
-        // const SizedBox(height: Dimensions.textToTextSpace),
         Theme(
           data: Theme.of(context).copyWith(
             textTheme: Theme.of(context).textTheme.copyWith(
@@ -394,15 +425,15 @@ class _CustomTextFieldState extends State<CustomTextField> {
             autofillHints: widget.autofillHints,
             maxLines: widget.maxLines,
             readOnly: widget.readOnly,
-            style:
-            TextStyle(
+            style: TextStyle(
               fontSize: 14,
-              color: themeController.isDarkMode.value?MyColor.colorWhite:MyColor.primaryColor,
+              color: themeController.isDarkMode.value
+                  ? MyColor.colorWhite
+                  : MyColor.primaryColor,
               fontWeight: FontWeight.w500,
-              fontFamily: 'digital_font',),
-            //textAlign: TextAlign.left,
+              fontFamily: 'digital_font',
+            ),
             cursorColor: MyColor.getTextColor(),
-
             controller: widget.controller,
             autofocus: false,
             textInputAction: widget.inputAction,
@@ -414,13 +445,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             inputFormatters: widget.inputFormatters,
             onTap: widget.onTap,
             decoration: InputDecoration(
-              contentPadding: widget.contentPadding ??  EdgeInsetsDirectional.only(
-                  top: 0, start: 15, end: 15, bottom: 0),
+              contentPadding: widget.contentPadding ??
+                  EdgeInsetsDirectional.only(
+                      top: 0, start: 15, end: 15, bottom: 0),
               hintText:
               widget.hintText != null ? widget.hintText!.tr : '',
               hintStyle: widget.hintTextStyle ??
                   regularLarge.copyWith(
-                    color: themeController.isDarkMode.value?MyColor.colorWhite:MyColor.getHintTextColor()
+                    color: themeController.isDarkMode.value
+                        ? MyColor.colorWhite
+                        : MyColor.getHintTextColor()
                         .withValues(alpha: 0.7),
                   ),
               fillColor: widget.fillColor,
@@ -432,17 +466,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   width: 1.5,
-                  color: widget.focusColor ?? MyColor.secondaryColor,
+                  color:
+                  widget.focusColor ?? MyColor.secondaryColor,
                 ),
                 borderRadius: BorderRadius.circular(widget.radius!),
               ),
               enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      width: themeController.isDarkMode.value? 0.5: 0.5,
+                      width: themeController.isDarkMode.value
+                          ? 0.5
+                          : 0.5,
                       color: MyColor.getTextFieldDisableBorder()),
                   borderRadius: BorderRadius.circular(widget.radius!)),
               prefixIcon: widget.prefixIcon,
-              prefixIconConstraints: BoxConstraints.loose(Size(40, 40)),
+              prefixIconConstraints:
+              BoxConstraints.loose(Size(40, 40)),
               isDense: widget.isDense,
               suffixIconConstraints: widget.suffixIconConstraints ??
                   BoxConstraints(
@@ -450,51 +488,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       maxWidth: 70,
                       minHeight: 40,
                       minWidth: 50),
-              suffixIcon: widget.isShowSuffixIcon
-                  ? widget.isPassword
-                  ? Center(
-                child: GestureDetector(
-                  onTap: _toggle,
-                  child: Padding(
-                      padding:
-                      const EdgeInsets.only(right: 4.0),
-                      child: obscureText
-                          ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                          : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-
-                    // Text(
-                    //   (obscureText ? "Show" : "Hide").tr,
-                    //   style: boldDefault.copyWith(
-                    //     color: obscureText
-                    //         ? MyColor.primaryColor
-                    //         : MyColor.hintTextColor,
-                    //   ),
-                    // ),
-                  ),
-                ),
-              )
-                  : widget.isIcon
-                  ? IconButton(
-                onPressed: widget.onSuffixTap,
-                icon: Icon(
-                  widget.isSearch
-                      ? Icons.search_outlined
-                      : widget.isCountryPicker
-                      ? Icons.arrow_drop_down_outlined
-                      : Icons.camera_alt_outlined,
-                  size: 25,
-                  color: MyColor.getPrimaryColor(),
-                ),
-              )
-                  : widget.suffixWidget
-                  : null,
+              suffixIcon: _buildSuffixIcon(),
             ),
             onFieldSubmitted: (text) => widget.nextFocus != null
                 ? FocusScope.of(context).requestFocus(widget.nextFocus)
                 : widget.onSubmit != null
                 ? widget.onSubmit!()
                 : null,
-            onChanged: (text) => widget.onChanged!(text),
+            onChanged: (text) {
+              if (widget.onChanged != null) {
+                widget.onChanged!(text);
+              }
+              // Update the UI to show/hide clear icon based on text presence
+              if (widget.clearTextOnSuffixTap) {
+                setState(() {});
+              }
+            },
           ),
         )
       ],
@@ -517,7 +526,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
         maxLines: widget.maxLines,
         readOnly: widget.readOnly,
         style: regularDefault.copyWith(color: MyColor.getTextColor()),
-        //textAlign: TextAlign.left,
         cursorColor: MyColor.getPrimaryColor(),
         controller: widget.controller,
         autofocus: false,
@@ -531,8 +539,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         onTap: widget.onTap,
         decoration: InputDecoration(
           isDense: widget.isDense,
-          contentPadding: widget.contentPadding ??  EdgeInsetsDirectional.only(
-              top: 0, start: 0, end: 0, bottom: 0),
+          contentPadding: widget.contentPadding ??
+              EdgeInsetsDirectional.only(
+                  top: 0, start: 0, end: 0, bottom: 0),
           labelText: widget.labelText?.tr,
           labelStyle: regularDefault.copyWith(
               color: MyColor.getLabelTextColor()),
@@ -541,7 +550,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           border: InputBorder.none,
           hintText: widget.hintText != null ? widget.hintText!.tr : '',
           hintStyle: regularLarge.copyWith(
-              color: MyColor.getHintTextColor().withValues(alpha: 0.7)),
+              color: MyColor.getHintTextColor()
+                  .withValues(alpha: 0.7)),
           prefixIconConstraints: BoxConstraints.loose(Size(40, 40)),
           suffixIconConstraints: widget.suffixIconConstraints ??
               BoxConstraints(
@@ -549,47 +559,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   maxWidth: 70,
                   minHeight: 40,
                   minWidth: 50),
-          suffixIcon: widget.isShowSuffixIcon
-              ? widget.isPassword
-              ? GestureDetector(
-            onTap: _toggle,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 4.0),
-              child: Center(
-                  child: obscureText
-                      ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                      : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                // Text(
-                //   (obscureText ? "Show" : "Hide").tr,
-                //   style: boldDefault.copyWith(
-                //     color: obscureText
-                //         ? MyColor.primaryColor
-                //         : MyColor.hintTextColor,
-                //   ),
-                // ),
-              ),
-            ),
-          )
-              : widget.isIcon
-              ? IconButton(
-            onPressed: widget.onSuffixTap,
-            icon: Icon(
-              widget.isSearch
-                  ? Icons.search_outlined
-                  : widget.isCountryPicker
-                  ? Icons.arrow_drop_down_outlined
-                  : Icons.camera_alt_outlined,
-              size: 25,
-              color: MyColor.getPrimaryColor(),
-            ),
-          )
-              : widget.suffixWidget
-              : null,
+          suffixIcon: _buildSuffixIcon(),
         ),
         onFieldSubmitted: (text) => widget.nextFocus != null
             ? FocusScope.of(context).requestFocus(widget.nextFocus)
             : null,
-        onChanged: (text) => widget.onChanged!(text),
+        onChanged: (text) {
+          if (widget.onChanged != null) {
+            widget.onChanged!(text);
+          }
+          // Update the UI to show/hide clear icon based on text presence
+          if (widget.clearTextOnSuffixTap) {
+            setState(() {});
+          }
+        },
       ),
     )
         : Theme(
@@ -622,8 +605,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
           isDense: widget.isDense,
-          contentPadding: widget.contentPadding ??  EdgeInsetsDirectional.only(
-              top: 0, start: 0, end: 0, bottom: 0),
+          contentPadding: widget.contentPadding ??
+              EdgeInsetsDirectional.only(
+                  top: 0, start: 0, end: 0, bottom: 0),
           labelText: widget.labelText?.tr,
           labelStyle: regularDefault.copyWith(
               color: MyColor.getLabelTextColor()),
@@ -631,7 +615,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
           filled: true,
           border: UnderlineInputBorder(
             borderSide: BorderSide(
-                width: 0.5, color: MyColor.getTextFieldDisableBorder()),
+                width: 0.5,
+                color: MyColor.getTextFieldDisableBorder()),
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -646,46 +631,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   width: 0.5,
                   color: MyColor.getTextFieldDisableBorder())),
           prefixIconConstraints: BoxConstraints.loose(Size(40, 40)),
-          suffixIcon: widget.isShowSuffixIcon
-              ? widget.isPassword
-              ? GestureDetector(
-            onTap: _toggle,
-            child: Padding(
-                padding: const EdgeInsets.only(right: 4.0),
-                child: obscureText
-                    ? Icon(Icons.visibility_off_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-                    : Icon(Icons.visibility_outlined, color: MyColor.textcolorsubtitle,size: 16,)
-
-              // Text(
-              //   (obscureText ? "Show" : "Hide").tr,
-              //   style: boldDefault.copyWith(
-              //     color: obscureText
-              //         ? MyColor.primaryColor
-              //         : MyColor.hintTextColor,
-              //   ),
-              // ),
-            ),
-          )
-              : widget.isIcon
-              ? IconButton(
-            onPressed: widget.onSuffixTap,
-            icon: Icon(
-              widget.isSearch
-                  ? Icons.search_outlined
-                  : widget.isCountryPicker
-                  ? Icons.arrow_drop_down_outlined
-                  : Icons.camera_alt_outlined,
-              size: 25,
-              color: MyColor.getPrimaryColor(),
-            ),
-          )
-              : widget.suffixWidget
-              : null,
+          suffixIcon: _buildSuffixIcon(),
         ),
         onFieldSubmitted: (text) => widget.nextFocus != null
             ? FocusScope.of(context).requestFocus(widget.nextFocus)
             : null,
-        onChanged: (text) => widget.onChanged!(text),
+        onChanged: (text) {
+          if (widget.onChanged != null) {
+            widget.onChanged!(text);
+          }
+          // Update the UI to show/hide clear icon based on text presence
+          if (widget.clearTextOnSuffixTap) {
+            setState(() {});
+          }
+        },
       ),
     );
   }

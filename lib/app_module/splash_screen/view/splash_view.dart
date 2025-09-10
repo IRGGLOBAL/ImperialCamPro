@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../utils/Images/my_images.dart';
-import '../../../utils/Paddings/AppPaddings.dart';
 import '../../../utils/custom_widget/my_color.dart';
-import '../../auth/view/login_screen.dart';
 import 'onboard_image.dart';
 
 

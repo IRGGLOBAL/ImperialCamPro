@@ -8,5 +8,10 @@ class HomeController extends GetxController {
   var searchHintText = "Search...".tr.obs;
   var isListening = false.obs;
 
+  var selectedTab = 0.obs;
+
+  void changeTab(int index) {
+    selectedTab.value = index;
+  }
 
 }

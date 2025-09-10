@@ -11,17 +11,6 @@ import '../../../utils/Widgets/AppText.dart';
 import '../../../utils/custom_widget/dimensions.dart';
 import '../../../utils/custom_widget/my_color.dart';
 
-import 'package:campro/app_module/auth/view/signup_screen.dart';
-import 'package:campro/utils/Images/my_images.dart';
-import 'package:campro/utils/Paddings/AppPaddings.dart';
-import 'package:campro/utils/custom_widget/strings.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import '../../../utils/Fonts/AppDimensions.dart';
-import '../../../utils/Widgets/AppButton.dart';
-import '../../../utils/Widgets/AppText.dart';
-import '../../../utils/custom_widget/my_color.dart';
 
 class OnboardController extends GetxController {
   final RxInt currentPage = 0.obs;

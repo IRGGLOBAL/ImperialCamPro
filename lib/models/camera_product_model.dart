@@ -6,5 +6,5 @@ class Product {
   final Widget screen;
   final Map<String, dynamic>? arguments;
 
-  Product({required this.name,    required this.screen, this.arguments});
+  Product({required this.name,  required this.screen, this.arguments});
 }
