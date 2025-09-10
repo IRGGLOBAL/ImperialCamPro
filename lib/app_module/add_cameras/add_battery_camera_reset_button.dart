@@ -9,15 +9,35 @@ import 'package:campro/utils/custom_widget/strings.dart';
 
 import '../manually_enter_camera/manual_entry_controller.dart';
 import 'add_battery_camera.dart';
+import 'add_battery_camera_power_screen.dart';
 
 class AddBatteryCameraResetButton extends StatelessWidget {
-   AddBatteryCameraResetButton({super.key,this.index1=0,this.index2=0});
-  ManualEntryController manualEntryController=Get.find<ManualEntryController>();
+  final String category;
+  final int screenIndex;
+   AddBatteryCameraResetButton({super.key,
+     required this.category,
+     required this.screenIndex
+     // this.index1=0,
+     // this.index2=0
+   });
 
- int index1=0;
- int index2=0;
+
+  final ManualEntryController manualEntryController = Get.find<ManualEntryController>();
+  //ManualEntryController manualEntryController=Get.find<ManualEntryController>();
+
+ // int index1=0;
+ // int index2=0;
   @override
   Widget build(BuildContext context) {
+
+    // Get the screen data for this category
+    final screenData = manualEntryController.screensData[category];
+    //final screenKey = "screen$screenIndex"; // e.g., "screen2"
+    final screenKey = "screen$screenIndex";
+    final texts = screenData?[screenKey] ?? ["Title not found", "Subtitle not found"];
+    final hasNextScreen = manualEntryController.hasNextScreen(category, screenIndex);
+
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -61,8 +81,8 @@ class AddBatteryCameraResetButton extends StatelessWidget {
 
             /// Bold Title
             AppText(
-              text:
-              "${manualEntryController.screensData.toList()[index1][index2]!["screen2"][1]}",
+              text: texts[0],
+             // text: "${manualEntryController.screensData.toList()[index1][index2]!["screen2"][1]}",
               size: AppDimensions.FONT_SIZE_16,
               fontWeight: FontWeight.w600,
               color: MyColor.primaryColor,
@@ -73,7 +93,8 @@ class AddBatteryCameraResetButton extends StatelessWidget {
 
             /// Sub Text
             AppText(
-              text: "${manualEntryController.screensData.toList()[index1][index2]!["screen2"][0]}",
+              text: texts[1],
+             // text: "${manualEntryController.screensData.toList()[index1][index2]!["screen2"][0]}",
               size: AppDimensions.FONT_SIZE_12,
               fontWeight: FontWeight.w500,
               color: MyColor.primaryColor,
@@ -91,7 +112,36 @@ class AddBatteryCameraResetButton extends StatelessWidget {
               fontWeight: FontWeight.w500,
               hasShadow: false,
               onTap: () {
-                Get.to(AddBatteryCamera());
+                if (manualEntryController.hasNextScreen(category, screenIndex)) {
+                  // Check if we need to go to AddBatteryCameraPowerScreen or AddBatteryCameraResetButton
+                  if (screenIndex % 2 == 0) {
+                    // Even screen index (0, 2, 4...) - go to PowerScreen
+                    Get.to(AddBatteryCameraPowerScreen(
+                      category: category,
+                      screenIndex: screenIndex + 1,
+                    ));
+                  } else {
+                    // Odd screen index (1, 3, 5...) - go to ResetButton
+                    Get.to(AddBatteryCameraResetButton(
+                      category: category,
+                      screenIndex: screenIndex + 1,
+                    ));
+                  }
+                } else {
+                  // If this is the last screen, go to final setup
+                  Get.to(AddBatteryCamera());
+                }
+                // if (screenIndex < 2) {
+                //   // If there's a next screen for this category
+                //   Get.to(AddBatteryCameraResetButton(
+                //     category: category,
+                //     screenIndex: screenIndex + 1,
+                //   ));
+                // } else {
+                //   // If this is the last screen, go to final setup
+                //   Get.to(AddBatteryCamera());
+                // }
+               // Get.to(AddBatteryCamera());
               },
               elevation: 0,
               borderWidth: 0,

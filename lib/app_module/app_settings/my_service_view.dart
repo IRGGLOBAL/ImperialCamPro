@@ -7,6 +7,7 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Images/my_images.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
+import '../camera_settings/cloud_storage_service_detail.dart';
 
 class MyServiceView extends StatelessWidget {
   const MyServiceView({Key? key}) : super(key: key);
@@ -28,6 +29,20 @@ class MyServiceView extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: AppText(
+              text: "${MyStrings.order.tr}",
+              size: AppDimensions.FONT_SIZE_14,
+              fontWeight: FontWeight.w500,
+              color: MyColor.secondaryColor,
+              onTap: (){
+                Get.to(MyOrders());
+              },
+            ),
+          ),
+        ],
         backgroundColor: Colors.white,
         surfaceTintColor: MyColor.transparentColor,
 
@@ -42,7 +57,7 @@ class MyServiceView extends StatelessWidget {
             // Cloud Storage Card
             GestureDetector(
               onTap: (){
-                Get.to(MyOrders());
+                Get.to(CloudStorageServiceDetail());
               },
               child: Container(
                 padding: const EdgeInsets.all(16),

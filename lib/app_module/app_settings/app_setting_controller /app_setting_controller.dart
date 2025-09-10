@@ -466,7 +466,7 @@ class AppSettingController extends GetxController {
     ],
     // Items for second tile
     [
-      {'question': '${MyStrings.cameramobileetectionque1.tr}', 'answer': '${MyStrings.cameramobileetectionans1.tr}'},
+      {'question': '${MyStrings.paidsubscriptionque2.tr}', 'answer': '${MyStrings.paidsubscriptionans6.tr}'},
 
     ],
 

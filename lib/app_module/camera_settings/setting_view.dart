@@ -265,7 +265,7 @@ class SettingView extends StatelessWidget {
             const SizedBox(height: 10),
 
             AppButton(
-              buttonName: MyStrings.next.tr,
+              buttonName: MyStrings.deletedevice.tr,
               buttonColor: MyColor.secondaryColor,
               textColor: MyColor.colorWhite,
               textSize: 16,

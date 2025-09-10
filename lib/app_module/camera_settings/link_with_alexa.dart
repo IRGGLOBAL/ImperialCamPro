@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Images/my_images.dart';
 import '../../utils/Paddings/AppPaddings.dart';
+import '../../utils/Widgets/AppButton.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
 
@@ -52,6 +53,20 @@ class LinkWithAlexa extends StatelessWidget {
               size: AppDimensions.FONT_SIZE_12,
               fontWeight: FontWeight.w500,
               color: MyColor.primaryColor,
+            ),
+            const SizedBox(height: 200),
+            AppButton(
+              buttonName: MyStrings.allow.tr,
+              buttonColor: MyColor.secondaryColor,
+              textColor: MyColor.colorWhite,
+              textSize: 16,
+              fontWeight: FontWeight.w500,
+              hasShadow: false,
+              buttonWidth: double.infinity,
+              onTap:  () {},
+              elevation: 0,
+              borderWidth: 0,
+              isCenter: true,
             ),
           ],
         ),

@@ -6,38 +6,19 @@ import 'package:campro/utils/Paddings/AppPaddings.dart';
 import 'package:campro/utils/Widgets/AppText.dart';
 import 'package:campro/utils/Widgets/AppButton.dart';
 import 'package:campro/utils/custom_widget/strings.dart';
+import '../../manually_enter_camera/manual_entry_controller.dart';
+import 'fourg_add_battery_camera_reset_button.dart';
+import 'fourg_add_battery_camera_start_device_screen.dart';
 
-import '../manually_enter_camera/manual_entry_controller.dart';
-import 'add_battery_camera.dart';
-import 'add_battery_camera_reset_button.dart';
 
-class AddBatteryCameraPowerScreen extends StatelessWidget {
-  final String category;
-  final int screenIndex;
-   AddBatteryCameraPowerScreen({super.key,
-     // this.index1=0,
-     // this.index2=0
-     required this.category,
-     required this.screenIndex
-
+class FourgAddBatteryCameraPowerScreen extends StatelessWidget {
+  FourgAddBatteryCameraPowerScreen({super.key,
    });
-  // int index1=0;
-  // int index2=0;
-   //ManualEntryController manualEntryController=Get.find<ManualEntryController>();
 
   final ManualEntryController manualEntryController = Get.find<ManualEntryController>();
 
    @override
   Widget build(BuildContext context) {
-
-     final screenData = manualEntryController.screensData[category];
-     //final screenKey = screenIndex == 0 ? "screen1" : "screen2";
-     final screenKey = "screen$screenIndex";
-     final texts = screenData?[screenKey] ?? ["Title not found", "Subtitle not found"];
-
-     // Check if there's a next screen
-     final hasNextScreen = manualEntryController.hasNextScreen(category, screenIndex);
-
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -79,8 +60,7 @@ class AddBatteryCameraPowerScreen extends StatelessWidget {
 
             /// Bold Title
             AppText(
-              text: texts[0].isNotEmpty ? texts[0] : " ",
-             // text: texts[0],
+              text: MyStrings.fourgcameratitle.tr,
               size: AppDimensions.FONT_SIZE_16,
               fontWeight: FontWeight.w600,
               color: MyColor.primaryColor,
@@ -91,7 +71,7 @@ class AddBatteryCameraPowerScreen extends StatelessWidget {
 
             /// Sub Text
             AppText(
-              text: texts[1].isNotEmpty ? texts[1] : " ",
+              text: MyStrings.fourgcamerasubtitle.tr,
               //text: texts[1],
               size: AppDimensions.FONT_SIZE_12,
               fontWeight: FontWeight.w500,
@@ -110,25 +90,8 @@ class AddBatteryCameraPowerScreen extends StatelessWidget {
               fontWeight: FontWeight.w500,
               hasShadow: false,
               onTap: () {
-                if (manualEntryController.hasNextScreen(category, screenIndex)) {
-                  // Check if we need to go to AddBatteryCameraPowerScreen or AddBatteryCameraResetButton
-                  if (screenIndex % 2 == 0) {
-                    // Even screen index (0, 2, 4...) - go to PowerScreen
-                    Get.to(AddBatteryCameraPowerScreen(
-                      category: category,
-                      screenIndex: screenIndex + 1,
-                    ));
-                  } else {
-                    // Odd screen index (1, 3, 5...) - go to ResetButton
-                    Get.to(AddBatteryCameraResetButton(
-                      category: category,
-                      screenIndex: screenIndex + 1,
-                    ));
-                  }
-                } else {
-                  // If this is the last screen, go to final setup
-                  Get.to(AddBatteryCamera());
-                }
+                Get.to(FourgAddBatteryCameraStartDeviceScreen());
+
 
                 },
               elevation: 0,

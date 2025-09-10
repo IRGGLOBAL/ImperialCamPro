@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class MyStrings {
 
   static const String hide = "Hide";
+  static const String allow = "Allow";
 
   static const String show = "Show";
   static const String volume = "Volume";
@@ -267,6 +268,7 @@ class MyStrings {
   static const String googleassistantcontent0 = "ok Google, show me camera";
   static const String cloudstorageserviceeventaiplus = "Cloud Storage Service (Event+AI Plus)";
   static const String orderno = "Order No:";
+  static const String order = "Order";
   static const String noofdevices = "No. of devices:";
   static const String packagetype = "Package Type";
   static const String paymenttimedate = "Payment Time&Date";
@@ -1165,6 +1167,30 @@ class MyStrings {
       "5. In the pop up window, select the [Confirm] option and click on it.\n\n"
   ;
 
+  static const String paidsubscriptionans6 =
+      "4G traffic&cloud storage&AI refund strategy\n\n"
+      "If you encounter some problems or no longer need to use the virtual package service mentioned above, you may need to consider applying for a refund.\n\n"
+      "Here are some refund strategies to help you:\n\n"
+      "1. Understand refund policy:\n\n"
+      "Before applying for a refund, you need to understand our refund policy.\n\n"
+      "If your virtual service is not effective, you can apply for a refund before the service takes effect, and we will charge you a 20% refund processing fee;\n\n"
+      "If your virtual service has been activated and you have purchased a 4G data plan, you will not be able to apply for a refund. If you purchase a cloud storage or AI package, we will charge you a 20% refund handling fee and the cost calculated based on your actual usage time.\n\n"
+      "After submitting the refund application, we will complete the refund process within seven working days.\n\n"
+      "2. How to apply for a refund:\n\n"
+      "If you want to apply for a refund, you can submit the application in the corresponding payment software.\n\n"
+      "If you want to apply to cancel the continuous monthly subscription service, please manually disable the automatic renewal function in the payment software settings management at least 24 hours before the current subscription period expires; Please refer to the document for specific cancellation methods“How to cancel continuous monthly services”。\n\n"
+      "3. Please note the application time:\n\n"
+      "If you want to receive a refund as soon as possible, you need to submit the application during normal working hours.\n\n"
+      "Our working hours are from 9:00 to 18:00 every Monday to Friday. If you submit your application outside of working hours, it may be delayed in processing.\n\n"
+      "4. Timely monitoring of refund status:\n\n"
+      "Once you submit a refund application, you need to keep an eye on the status of the application in a timely manner.\n\n"
+      "You can check the application status on the corresponding payment software. If your refund request is rejected, you will need to consider modifying the request and resubmitting it, or contact our customer service for assistance.\n\n"
+      "5. Regarding customer service refund permissions:\n\n"
+      "Due to some limitations of payment software, some payment platforms require you to apply for a refund yourself, and we are unable to assist you.\n\n"
+      "If you use the functions of 'Apple Pay', 'Google Pay', or multiple devices for simultaneous payment, you need to apply for a refund on your own within the corresponding payment software.\n\n"
+      "If you have used Paypal payment and the order is within six months, you can also contact our customer service to manually refund you;\n\n"
+      "If you have used PayPal payment but your order has exceeded six months, you will need to apply for a refund on your own within the PayPal software." ;
+
 ///Common Route Setup
 
   static const String routerSetupTitle = "Common Router Setup...";
@@ -1199,6 +1225,31 @@ class MyStrings {
   static String adddoorbellcameranextsubtitle  = 'Press the [Bell] button, and tap Next'.tr;
 
 
+  ///power plugin camera
+  static String powerplugincamerasubtitle  = 'Please place the camera & phone close to your router for the best signal.\n\n*Please wait until the light turns red and blinks.\n\nThen tap next.'.tr;
+  static String powerplugincameraresetbuttontext  = '*Please wait until the light turns red and blinks\n\nHold the RESET button on your device for 4-5 seconds (please refer to the user manual for more on this)\n\n*Please wait until the light turns red and blinks\n\nThen tap next.'.tr;
 
+  ///Baby Monitor
+  static String babymonitorcameranextsubtitle  = 'Press and hold the reset button for 5 seconds to reset the device.\n\nThe reset button position varies for different devices, please refer to the product manual for accuracy.\n\nPlease wait for the red indicator light to flash. '.tr;
+
+  ///4G Camera
+  static String fourgcameratitle  = 'Please Insert Sim Card'.tr;
+  static String fourgcamerasubtitle  = '*Please use the SIM card attached to the device or the mainstream brand SIM card.\n\n*Please confirm the direction of the device’s SIM card indicator icon, and then insert the SIM card.'.tr;
+  static String fourgcameranexttitle  = 'Press and hold the device power button to start the device'.tr;
+  static String fourgcameranextsubtitle  = 'Make sure the device has enough power'.tr;
+  static String fourgcameranextsubtitletwo  = 'Ensure that the SIM card is inserted collectively and activated'.tr;
+  static String fourgcameranextsubtitlethree  = 'Wait 1-5 minutes, the blue light flashes, click next'.tr;
+  static String bluelightisnotflashing  = 'Blue light is not flashing'.tr;
+  static String theindicatorlighthasbeen = 'The indicator light has been flashing blue slowly'.tr;
+  static String fourgcamerathirdtitle  = 'Please remove all fil from the lens. Tap Next to show a QR code, and let your device scan the code. Keep your phone 5-8 inches from the lens.'.tr;
+  static String fourgcamerafourthtitle  = 'Scasn the QR code below with the device at a distance of 5-8 inches. A tone will be heard when successfully scanned.'.tr;
+
+  ///Camera Kit
+  static String camerakittitle  = 'Please power on the device'.tr;
+  static String camerakitsubtitle  = 'Connect the device to the power supply and plug in  the network cable, so that the phone and the device are under the same network.'.tr;
+  static String camerakitnexttitle  = 'Confirm the indicator light is red flashing'.tr;
+  static String camerakitnextsubtitle  = 'Connect the device to the power supply and plug in  the network cable, so that the phone and the device are under the same network.'.tr;
+
+  ///
 
 }

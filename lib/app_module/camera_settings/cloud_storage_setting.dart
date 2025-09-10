@@ -6,6 +6,7 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Images/my_images.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
+import '../app_settings/my_orders_view.dart';
 import 'cloud_storage_service_detail.dart';
 
 class CloudStorageSetting extends StatelessWidget {
@@ -28,6 +29,20 @@ class CloudStorageSetting extends StatelessWidget {
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: AppText(
+              text: "${MyStrings.order.tr}",
+              size: AppDimensions.FONT_SIZE_14,
+              fontWeight: FontWeight.w500,
+              color: MyColor.secondaryColor,
+              onTap: (){
+                Get.to(MyOrders());
+              },
+            ),
+          ),
+        ],
         backgroundColor: Colors.white,
         surfaceTintColor: MyColor.transparentColor,
 
