@@ -12,8 +12,8 @@ class BottomNavBarView extends GetView<BottomNavController> {
 
   final List<String> iconPaths = [
     MyImages.home,
-    MyImages.layer,
-    MyImages.library,
+    // MyImages.layer,
+    // MyImages.library,
     MyImages.setting,
   ];
 
@@ -34,7 +34,7 @@ class BottomNavBarView extends GetView<BottomNavController> {
           ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(iconPaths.length, (index) {
               final isSelected = controller.selectedIndex.value == index;
               return GestureDetector(
@@ -43,6 +43,7 @@ class BottomNavBarView extends GetView<BottomNavController> {
                   controller.changeIndex(index);
                 },
                 child: Column(
+                  //crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // --- Icon ---
@@ -87,8 +88,6 @@ class BottomNavBarView extends GetView<BottomNavController> {
         //      FloatingNavbarItem(icon: (Icons.person), title: "Profile"),
         //   ],
         // ),
-
-
 
       );
   }

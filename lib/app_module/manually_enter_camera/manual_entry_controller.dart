@@ -4,8 +4,10 @@ import 'package:permission_handler/permission_handler.dart';
 import '../../models/camera_product_model.dart';
 import '../../utils/custom_widget/strings.dart';
 import '../add_cameras/4G_camera_flow/fourg_add_battery_camera_power_screen.dart';
-import '../add_cameras/add_battery_camera.dart';
+import '../add_cameras/4G_camera_flow/fourg_search_nearby_devices.dart';
+import '../add_cameras/Camera_Kit/add_battery_camera_kit.dart';
 import '../add_cameras/add_battery_camera_power_screen.dart';
+import '../add_cameras/hunting_camera/hunting_camera_first_screen.dart';
 
 
 class ManualEntryController extends GetxController {
@@ -203,29 +205,29 @@ class ManualEntryController extends GetxController {
       "4G Camera": [
         Product(
           name: "4G Camera 1",
-          screen: FourgAddBatteryCameraPowerScreen(),
+          screen: FourgAddBatteryUnifiedScreen(),
         ),
       ],
       "Camera Kits": [
         Product(
           name: "Camera Kit 1",
-          screen: AddBatteryCameraPowerScreen(category: "Camera Kits", screenIndex: 1),
+          screen: AddBatteryCameraKit(),
         ),
         Product(
           name: "Camera Kit 2",
-          screen: AddBatteryCameraPowerScreen(category: "Camera Kits", screenIndex: 1),
+          screen: AddBatteryCameraKit(),
         ),
       ],
       "Hunting Camera": [
         Product(
           name: "Hunting Camera 1",
-          screen: AddBatteryCameraPowerScreen(category: "Hunting Camera", screenIndex: 1),
+          screen: HuntingCameraFirstScreen(),
         ),
       ],
     };});
 
 
-    worker = ever(secondsRemaining, (_) {
+    _worker = ever(secondsRemaining, (_) {
       if (secondsRemaining.value > 0) {
         Future.delayed(const Duration(seconds: 1), () {
           secondsRemaining.value--;
@@ -288,8 +290,24 @@ class ManualEntryController extends GetxController {
   }
 
   ///fourg controller
-  var secondsRemaining = 120.obs; // 2 minutes timer
-  late final worker;
+  var isSearching = false.obs;
+  var secondsRemaining = 120.obs; // 2 minutes
+  Worker? _worker;
+
+  void startSearch() {
+    if (isSearching.value) return; // already searching
+    isSearching.value = true;
+
+    _worker = ever(secondsRemaining, (val) {
+      if (secondsRemaining.value > 0) {
+        Future.delayed(const Duration(seconds: 1), () {
+          secondsRemaining.value--;
+        });
+      } else {
+        _worker?.dispose();
+      }
+    });
+  }
 
   String get timerText {
     final minutes = (secondsRemaining.value ~/ 60).toString().padLeft(2, '0');
@@ -299,9 +317,155 @@ class ManualEntryController extends GetxController {
 
   @override
   void onClose() {
-    worker?.dispose();
+    _worker?.dispose();
     super.onClose();
   }
+  // var secondsRemaining = 120.obs; // 2 minutes timer
+  // late final worker;
+  //
+  // String get timerText {
+  //   final minutes = (secondsRemaining.value ~/ 60).toString().padLeft(2, '0');
+  //   final seconds = (secondsRemaining.value % 60).toString().padLeft(2, '0');
+  //   return "$minutes:$seconds";
+  // }
+  //
+  // @override
+  // void onClose() {
+  //   worker?.dispose();
+  //   super.onClose();
+  // }
+
+
+  ///Four G Camera
+
+  final RxInt currentIndex = 0.obs;
+
+  // Define all screen content here
+  final List<Map<String, dynamic>> screens = [
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 180.0,
+      'mainText': MyStrings.fourgcameratitle.tr,
+      'subText': MyStrings.fourgcamerasubtitle.tr,
+      'showBullets': false,
+      'showRadio': false,
+      'showHelpText': false,
+      'nextScreen': null,
+    },
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 200.0,
+      'mainText': MyStrings.fourgcameranexttitle.tr,
+      'subText': '',
+      'bullets': [
+        MyStrings.fourgcameranextsubtitle.tr,
+        MyStrings.fourgcameranextsubtitletwo.tr,
+        MyStrings.fourgcameranextsubtitlethree.tr,
+      ],
+      'showBullets': true,
+      'showRadio': true,
+      'showHelpText': true,
+      'helpText': MyStrings.bluelightisnotflashing.tr,
+      'radioText': MyStrings.theindicatorlighthasbeen.tr,
+      'nextScreen': null,
+    },
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 180.0,
+      'mainText': '',
+      'subText': MyStrings.fourgcamerathirdtitle.tr,
+      'showBullets': false,
+      'showRadio': false,
+      'showHelpText': false,
+      'nextScreen': null,
+    },
+    // Add the QR code screen as the 4th screen
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 200.0,
+      'mainText': '',
+      'subText': MyStrings.fourgcamerafourthtitle.tr,
+      'showBullets': false,
+      'showRadio': false,
+      'showHelpText': false,
+      'nextScreen': null,
+    },
+  ];
+
+  void goToNextScreen() {
+    if (currentIndex.value < screens.length - 1) {
+      currentIndex.value++;
+    } else {
+      // This is the final screen - navigate to FourgSearchNearbyDevices
+      Get.to(FourgSearchNearbyDevices());
+    }
+  }
+
+  void goToPreviousScreen() {
+    if (currentIndex.value > 0) {
+      currentIndex.value--;
+    } else {
+      Get.back();
+    }
+  }
+
+  // Reset the flow to start from beginning
+  void resetFlow() {
+    currentIndex.value = 0;
+  }
+
+  ///Camera Kit
+
+  final RxInt currentIndex1 = 0.obs;
+
+  // Define all screen content here
+  final List<Map<String, dynamic>> camerakitscreens = [
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 180.0,
+      'mainText': MyStrings.camerakittitle.tr,
+      'subText':MyStrings.camerakitsubtitle.tr,
+      'showBullets': false,
+      'showRadio': false,
+      'showHelpText': false,
+      'nextScreen': null,
+    },
+    {
+      'title': MyStrings.addbatterycamera.tr,
+      'imageHeight': 180.0,
+      'mainText': MyStrings.camerakitnexttitle.tr,
+      'subText': MyStrings.camerakitnextsubtitle.tr,
+      'showBullets': false,
+      'showRadio': false,
+      'showHelpText': false,
+      'nextScreen': null,
+    },
+
+
+  ];
+
+  void camerakitgoToNextScreen() {
+    if (currentIndex1.value < camerakitscreens.length - 1) {
+      currentIndex1.value++;
+    } else {
+      // This is the final screen - navigate to FourgSearchNearbyDevices
+      Get.to(FourgSearchNearbyDevices());
+    }
+  }
+
+  void camerakitgoToPreviousScreen() {
+    if (currentIndex1.value > 0) {
+      currentIndex1.value--;
+    } else {
+      Get.back();
+    }
+  }
+
+  // Reset the flow to start from beginning
+  void camerakitresetFlow() {
+    currentIndex1.value = 0;
+  }
+
 }
 
 // Placeholder for permission dialog

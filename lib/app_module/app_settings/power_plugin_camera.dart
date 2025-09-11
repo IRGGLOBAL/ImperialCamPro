@@ -93,7 +93,7 @@ class PowerPluginCamera extends StatelessWidget {
 
   Widget _buildMainTiles(AppSettingController controller) {
     return Container(
-      height: Get.height*0.27,
+      height: Get.height*0.28,
       key: const ValueKey('main-tiles'),
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       decoration: BoxDecoration(

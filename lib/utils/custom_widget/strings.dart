@@ -5,6 +5,18 @@ class MyStrings {
 
   static const String hide = "Hide";
   static const String allow = "Allow";
+  static const String qrcode = "QR Code";
+  static const String isee = "I See";
+  static const String powersavingmodeinfo =
+      "1. The length of the video clip does not exceed 10 seconds\n\n"
+      "2. Humanoid Detection is enabled by Default\n\n"
+      "3. Default Humanoid Sensitivity\n\n"
+      "Turn on AI, humanoid recognitionis subject to AI results"
+  ;
+  static const String performancemodeinfo =
+      "1. Humanoid Detection is enabled by Default, and the recording time is automatically extended\n\n"
+      "2. Default Humanoid Sensitivity\n\n"
+      "Turn on AI, humanoid recognitionis subject to AI results" ;
 
   static const String show = "Show";
   static const String volume = "Volume";
@@ -74,7 +86,14 @@ class MyStrings {
   static const String intercom  = "Intercom";
   static const String calendar  = "Calendar";
   static const String alert  = "Alert";
+  static const String alertplan  = "Alert Plan";
+  static const String humanoidalarmarea  = "Humanoid Alarm Area";
+  static const String setthetimeperiodofthealarm = "Set the time period of the alarm, the device only triggers an alarm event during this time period.";
+  static const String tousethefunctionpleasemakesure = "To use the function, please make sure that the humanoid detection function is turned on";
   static const String live  = "Live";
+  static const String powersavingmode  = "Power Saving Mode";
+  static const String performancemode  = "Performance Mode";
+  static const String custommode  = "Custom Mode";
   static const String history  = "History";
   static const String cloud  = "Cloud";
   static const String microphone  = "Microphone";
@@ -86,6 +105,7 @@ class MyStrings {
   static const notFoundText = "Can not find the QR code please select";
   static const hotspot = "Hotspot Configuration";
   static const sonic = "Sonic Configuration";
+  static const configuration = "Configuration";
   static const manual = "Add Manually";
   static const appbarmenuselected = "AppBar menu selected:";
   static const qrode = "QR Code:";
@@ -189,6 +209,8 @@ class MyStrings {
   static const String alarmmanagementy = "Alarm Managementy";
   static const String receivealarmnotifications = "Receive Alarm Notifications";
   static const String motionalarm = "Motion Alarm";
+  static const String searchingnearbydevices = "Searching nearby devices";
+  static const String thesearchprocessmaytake  = "The search process may take 2 minutes, please do not do anything else";
   static const String motionalarmcontentone = "After turning it on, you can choose different detection sensitivities to monitor the movement of objects in front of the device and issue an alarm.";
   static const String detectionsensitivity = "Detection Sensitivity";
   static const String humanoiddetectionsensitivity = "Humanoid Detection Sensitivity";
@@ -1242,14 +1264,39 @@ class MyStrings {
   static String bluelightisnotflashing  = 'Blue light is not flashing'.tr;
   static String theindicatorlighthasbeen = 'The indicator light has been flashing blue slowly'.tr;
   static String fourgcamerathirdtitle  = 'Please remove all fil from the lens. Tap Next to show a QR code, and let your device scan the code. Keep your phone 5-8 inches from the lens.'.tr;
-  static String fourgcamerafourthtitle  = 'Scasn the QR code below with the device at a distance of 5-8 inches. A tone will be heard when successfully scanned.'.tr;
+  static String fourgcamerafourthtitle  = 'Scan the QR code below with the device at a distance of 5-8 inches. A tone will be heard when successfully scanned.'.tr;
 
   ///Camera Kit
   static String camerakittitle  = 'Please power on the device'.tr;
   static String camerakitsubtitle  = 'Connect the device to the power supply and plug in  the network cable, so that the phone and the device are under the same network.'.tr;
   static String camerakitnexttitle  = 'Confirm the indicator light is red flashing'.tr;
   static String camerakitnextsubtitle  = 'Connect the device to the power supply and plug in  the network cable, so that the phone and the device are under the same network.'.tr;
+  static String camerakit = '• Make sure the device’s blue light is blinking\n• Ensure that the SIM card signal of the device is in good condition'.tr;
 
-  ///
+  ///Hunting Camera
+
+  static String huntingcameratitle  = 'Toggle the device power button to ON to start the device'.tr;
+  static String turnonbluetooth  = 'Turn on Bluetooth'.tr;
+  static String bluetoothdistributionnetwork  = 'Bluetooth Distribution Network'.tr;
+  static String turnonbluetoothone  = 'Make sure both phone and device Bluetooth are turned on'.tr;
+  static String turnonbluetoothfour  = 'Make sure the hunting camera is near the phone'.tr;
+  static String scandeviceqrcode  = 'Scan device QR code'.tr;
+  static String itisonlyapplicabletohunting  = 'It is only applicable to hunting camera scan code to add'.tr;
+  static String turnonbluetoothtwo  = 'Long press the START button on the device to generate a QR code.'.tr;
+  static String turnonbluetooththree  = 'Turn on the device screen to enter the setting page, enter the setting and click'.tr;
+
+  ///Add Time Period
+
+  static String addtimeperiod  = 'Add Time Period'.tr;
+  static String setanalarmplanandthedevicewillonlytrigger  = 'Set an alarm plan, and the device will only trigger the siren alarm during that time period'.tr;
+  static String starttime  = 'Start Time'.tr;
+  static String endtime  = 'End Time'.tr;
+  static String repeat  = 'Repeat'.tr;
+  // static String repeat  = 'Repeat'.tr;
+  // static String repeat  = 'Repeat'.tr;
+  // static String repeat  = 'Repeat'.tr;
+  // static String repeat  = 'Repeat'.tr;
+  // static String repeat  = 'Repeat'.tr;
+
 
 }

@@ -1,13 +1,12 @@
 import 'package:campro/utils/custom_widget/my_color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../utils/Fonts/AppDimensions.dart';
-import '../../utils/Images/my_images.dart';
+import '../../utils/Widgets/AppButton.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/custom_slider.dart';
 import '../../utils/custom_widget/strings.dart';
-import 'cloud_storage_setting.dart';
+import 'motion_detection_alert_plan.dart';
 
 class MotionDetectionView extends StatefulWidget {
   const MotionDetectionView({Key? key}) : super(key: key);
@@ -20,6 +19,14 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
 
   double sliderValue = 5; // default value
   bool receiveAlarmNotifications = true;
+
+  String _selectedMode = MyStrings.powersavingmode.tr;
+
+  final List<String> modes = [
+    MyStrings.powersavingmode.tr,
+    MyStrings.performancemode.tr,
+    MyStrings.custommode.tr
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +54,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             SizedBox(height: 10,),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
@@ -66,15 +74,14 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
-                    child:
+
                     AppText(
                       text:  MyStrings.motiondetection.tr,
                       size: AppDimensions.FONT_SIZE_14,
                       fontWeight: FontWeight.w500,
                       color: MyColor.primaryColor,
                       //textAlign: TextAlign.center,
-                    ),
+
 
                   ),
                   // Switch
@@ -107,7 +114,6 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
             ),
             SizedBox(height: 10,),
             Container(
-
               decoration: BoxDecoration(
                 color: MyColor.colorWhite,
                 borderRadius: BorderRadius.circular(12),
@@ -127,8 +133,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                   SizedBox(height: 16,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Expanded(
-                      child:
+                    child:
                       AppText(
                         text:  MyStrings.detectionsensitivity.tr,
                         size: AppDimensions.FONT_SIZE_14,
@@ -137,7 +142,6 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                        // textAlign: TextAlign.start,
                       ),
 
-                    ),
                   ),
                   // Slider without popup label
                   SliderTheme(
@@ -193,14 +197,13 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: AppText(
+                           AppText(
                                 text: MyStrings.motiondetection.tr,
                                 size: AppDimensions.FONT_SIZE_14,
                                 fontWeight: FontWeight.w500,
                                 color: MyColor.primaryColor,
                               ),
-                            ),
+
                             Transform.scale(
                               scale: 0.7,
                               child: Switch(
@@ -272,14 +275,13 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: AppText(
+                         AppText(
                                 text: MyStrings.dayhumanoiddetection.tr,
                                 size: AppDimensions.FONT_SIZE_14,
                                 fontWeight: FontWeight.w500,
                                 color: MyColor.primaryColor,
                               ),
-                            ),
+
                             Transform.scale(
                               scale: 0.7,
                               child: Switch(
@@ -301,14 +303,13 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: AppText(
+                         AppText(
                                 text: MyStrings.nighthumanoiddetection.tr,
                                 size: AppDimensions.FONT_SIZE_14,
                                 fontWeight: FontWeight.w500,
                                 color: MyColor.primaryColor,
                               ),
-                            ),
+
                             Transform.scale(
                               scale: 0.7,
                               child: Switch(
@@ -399,15 +400,199 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
             ),
 
             // Remove Expanded from here too
-            Padding(
-              padding: const EdgeInsets.symmetric( vertical: 20),
-              child: AppText(
-                text: MyStrings.motiondetectioncontentthree.tr,
-                size: AppDimensions.FONT_SIZE_12,
-                fontWeight: FontWeight.w500,
-                color: MyColor.primaryColor,
+            AppText(
+              text: MyStrings.motiondetectioncontentthree.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            SizedBox(height: 16,),
+            Container(
+              decoration: BoxDecoration(
+                color: MyColor.colorWhite,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade200,
+                    blurRadius: 2,
+                    spreadRadius: 0,
+                    offset: Offset(2, 2),
+                  ),
+                ],
+                border: Border.all(color: Colors.grey.shade200),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  children: modes.map((mode) {
+                    return ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Row(
+                        children: [
+                          AppText(
+                            text: mode,
+                            size: AppDimensions.FONT_SIZE_14,
+                            fontWeight: FontWeight.w500,
+                            color: MyColor.primaryColor,
+                          ),
+                          const SizedBox(width: 5),
+
+                          /// Show help icon only for power saving & performance
+                          if (mode != MyStrings.custommode.tr)
+                            GestureDetector(
+                              onTap: () {
+                                String title = '';
+                                String message = '';
+
+                                if (mode == MyStrings.powersavingmode.tr) {
+                                  title = MyStrings.powersavingmode.tr;
+                                  message = MyStrings.powersavingmodeinfo.tr; // <-- localized content
+                                } else if (mode == MyStrings.performancemode.tr) {
+                                  title = MyStrings.performancemode.tr;
+                                  message = MyStrings.performancemodeinfo.tr; // <-- localized content
+                                }
+
+                                Get.dialog(
+                                  AlertDialog(
+                                    backgroundColor: MyColor.colorWhite,
+                                    title:  AppText(
+                                      text: (title),
+                                      size: AppDimensions.FONT_SIZE_16,
+                                      fontWeight: FontWeight.w600,
+                                      color: MyColor.primaryColor,
+                                      textAlign: TextAlign.center
+                                    ),
+
+                                    content:  AppText(
+                                        text: (message),
+                                        size: AppDimensions.FONT_SIZE_14,
+                                        fontWeight: FontWeight.w400,
+                                        color: MyColor.primaryColor,
+                                        textAlign: TextAlign.start
+                                    ),
+
+                                    actions: [
+                                      AppButton(
+                                        buttonName: MyStrings.isee.tr,
+                                        buttonColor: MyColor.secondaryColor,
+                                        textColor: Colors.white,
+                                        textSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        hasShadow: false,
+                                        onTap: () => Get.back(),
+                                        elevation: 0,
+                                        borderWidth: 0,
+                                        isCenter: true,
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              child: Icon(
+                                Icons.help_outline,
+                                color: MyColor.primaryColor,
+                                size: 14,
+                              ),
+                            ),
+                        ],
+                      ),
+                      trailing: Radio<String>(
+                        value: mode,
+                        groupValue: _selectedMode,
+                        activeColor: Colors.red,
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedMode = value!;
+                          });
+                        },
+                      ),
+                    );
+                  }).toList(),
+                ),
               ),
             ),
+
+            SizedBox(height: 16,),
+            GestureDetector(
+              onTap: () {
+                Get.to(() =>  MotionDetectionAlertPlan());
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                decoration: BoxDecoration(
+                  color: MyColor.colorWhite,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade200,
+                      blurRadius: 2,
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
+                  border: Border.all(color: Colors.grey.shade200),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppText(
+                      text: MyStrings.alertplan.tr,
+                      size: AppDimensions.FONT_SIZE_14,
+                      fontWeight: FontWeight.w500,
+                      color: MyColor.primaryColor,
+                    ),
+                    Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16,),
+            AppText(
+              text: MyStrings.setthetimeperiodofthealarm.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            SizedBox(height: 16,),
+            GestureDetector(
+              onTap: () {
+                // Get.to(() =>  AntiFlickerSetting());
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                decoration: BoxDecoration(
+                  color: MyColor.colorWhite,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade200,
+                      blurRadius: 2,
+                      offset: const Offset(2, 2),
+                    ),
+                  ],
+                  border: Border.all(color: Colors.grey.shade200),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppText(
+                      text: MyStrings.humanoidalarmarea.tr,
+                      size: AppDimensions.FONT_SIZE_14,
+                      fontWeight: FontWeight.w500,
+                      color: MyColor.primaryColor,
+                    ),
+                    Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 16,),
+            AppText(
+              text: MyStrings.tousethefunctionpleasemakesure.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            SizedBox(height: 40,),
           ],
         ),
       ),

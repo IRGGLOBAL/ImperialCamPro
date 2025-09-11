@@ -94,6 +94,13 @@ class MyImages {
    static const String fourgcamera ='assets/setting_icons/fourg_camera.svg';
    static const String powerplugcamera ='assets/setting_icons/power_plug_camera.svg';
    static const String paidsubscription ='assets/setting_icons/paid_subscription.svg';
+   static const String cloudicon ='assets/icons/cloud_icon.svg';
+   static const String reseticon ='assets/icons/reset_icon.svg';
+   static const String searchicon ='assets/icons/search_icon.svg';
+   static const String qrcodeicon ='assets/icons/qr_code_icon.svg';
+   static const String bluetoothicon ='assets/icons/bluetooth_icon.svg';
+   static const String flashlighticon ='assets/icons/flashlight_icon.svg';
+   static const String galleryicon ='assets/icons/gallery_icon.svg';
 
 
 }

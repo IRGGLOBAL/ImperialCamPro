@@ -20,10 +20,6 @@
 //   }
 // }
 
-
-
-import 'package:campro/app_module/auth/view/forgot_password.dart';
-import 'package:campro/app_module/auth/view/signup_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '../app_settings/app_settings.dart';
@@ -34,8 +30,8 @@ class BottomNavController extends GetxController {
 
   List<Widget> get pages => [
     MyHomePage(),
-    ForgotPassword(),
-    SignUpScreen(),
+    // ForgotPassword(),
+    // SignUpScreen(),
     AppSettings(),
   ];
 
