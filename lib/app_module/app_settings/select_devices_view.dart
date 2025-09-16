@@ -1,3 +1,4 @@
+import 'package:campro/app_module/app_settings/subscription_plan_for_cameras.dart';
 import 'package:campro/app_module/camera_settings/camera_setting_controller.dart';
 import 'package:campro/utils/custom_widget/my_color.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,8 @@ class SelectDevicesView extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   hasShadow: false,
                   onTap: () {
-                    Get.to(ManualEntry());
+                   // Get.to(ManualEntry());
+                    Get.to(SubscriptionPlanPage());
                   },
                   elevation: 0,
                   borderWidth: 0,

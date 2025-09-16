@@ -42,6 +42,7 @@ class ShareDevicesView extends StatelessWidget {
               children: [
                 Expanded(
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () => c.isFamilyShare.value = true,
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),
@@ -71,6 +72,7 @@ class ShareDevicesView extends StatelessWidget {
                 ),
                 Expanded(
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () => c.isFamilyShare.value = false,
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 10),

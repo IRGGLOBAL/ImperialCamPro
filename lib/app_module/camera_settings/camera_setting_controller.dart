@@ -71,4 +71,27 @@ class CameraSettingController extends GetxController {
       );
     }
   }
+
+  // 0 = Network, 1 = Bluetooth
+  var selectedTab = 0.obs;
+
+  void switchTab(int index) {
+    if (index == 1) {
+      // Show alert first when Bluetooth is clicked
+      Get.defaultDialog(
+        title:  MyStrings.tips.tr,
+        middleText:
+        MyStrings.ipaddresssettingalert.tr,
+        textConfirm:  MyStrings.isee.tr,
+        confirmTextColor: Get.theme.primaryColor,
+        onConfirm: () {
+          Get.back();
+          selectedTab.value = index;
+        },
+      );
+    } else {
+      selectedTab.value = index;
+    }
+  }
+
 }

@@ -45,6 +45,7 @@ class JoinFamilyView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(() => QrScannerView());
                     },
@@ -88,6 +89,7 @@ class JoinFamilyView extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(AddDeviceEnterAccount());
                     },

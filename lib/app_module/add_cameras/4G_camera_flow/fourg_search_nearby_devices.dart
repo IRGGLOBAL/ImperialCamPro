@@ -55,6 +55,7 @@ class FourgSearchNearbyDevices extends StatelessWidget {
             const SizedBox(height: 30),
             /// Red Search Icon
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () {
                 c.startSearch();
               },

@@ -44,6 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
               top: 16,
               left: 16,
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.back();
                 },

@@ -64,6 +64,7 @@ class BatteryManagementView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       // Get.to(() =>  WirelessChime());
                     },
@@ -125,6 +126,7 @@ class BatteryManagementView extends StatelessWidget {
               child:  Column(
                   children: [
                     GestureDetector(
+                      behavior: HitTestBehavior.translucent,
                       onTap: () {
                         Get.to(() =>  ChargingSchemeView());
                       },
@@ -143,6 +145,7 @@ class BatteryManagementView extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     GestureDetector(
+                      behavior: HitTestBehavior.translucent,
                       onTap: () {
                         Get.to(() =>  ElectricityUsageStatistics());
                       },

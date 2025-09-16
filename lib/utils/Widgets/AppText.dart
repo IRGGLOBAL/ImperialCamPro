@@ -49,6 +49,7 @@ Widget AppText({
   // Wrap with GestureDetector if onTap is provided
   return onTap != null
       ? GestureDetector(
+    behavior: HitTestBehavior.translucent,
     onTap: onTap,
     child: textWidget,
   )
@@ -76,6 +77,7 @@ class HyperTxt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () => onTap?.call(),
       child: Text(
         text,

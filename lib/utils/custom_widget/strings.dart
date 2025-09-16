@@ -4,19 +4,45 @@ import 'package:get/get.dart';
 class MyStrings {
 
   static const String hide = "Hide";
+  static const String done = "Done";
   static const String allow = "Allow";
   static const String qrcode = "QR Code";
   static const String isee = "I See";
+  static const String tips = "Tips";
+  static const String networkconnection = "Network Connection";
+  static const String bluetoothconnection = "Bluetooth Connection";
+  static const String networkdeviceslist = "Network Devices List";
+  static const String bluetoothdeviceslist = "Bluetooth Devices List";
+  static const String selected = "Selected";
+  static const String selectall = "Select All";
+  static const String gosettings = "Go Settings";
+  static const String locallog = "Local log";
+  static const String alarmpicture = "Alarm Picture";
+  static const String appreceivesallalarmpictures  = "App receives all alarm pictures of the device";
+  static const String temporaryfiles = "Temporary Files";
+  static const String apptemporaryfiles = "App temporary files";
+  static const String permanentlydisabledon = "Permanently disabled on";
+  static const String deleteaccountone = "We will delete all information under your account as follows:";
+  static const String deleteaccounttwo = "All of your device information";
+  static const String deleteaccountthree = "All of your message logs";
+  static const String deleteaccountfour = "All of your account information";
+  static const String deleteaccountfive = "All of your images/videos captured by the camera";
+  static const String deleteaccountsix = "All of your smart device status information";
+  static const String deleteaccountseven = "All of your feedback information";
+  static const String deleteaccounteight = "If you log in your account before this, your deactivation will be canceled";
+  static const String afteropeningitishelpful  = "After opening, it is helpful for data analysis and improves user experience";
+  static const String ipaddresssettingalert = "Only single device settings are supported when connecting via Bluetooth. Devices that have been successfully networked do not support device connection.";
+  static const String onlydevicesthatsupportfullduplexintercom  = "Only devices that support full duplex intercom can be set up";
   static const String powersavingmodeinfo =
       "1. The length of the video clip does not exceed 10 seconds\n\n"
       "2. Humanoid Detection is enabled by Default\n\n"
       "3. Default Humanoid Sensitivity\n\n"
-      "Turn on AI, humanoid recognitionis subject to AI results"
+      "Turn on AI, humanoid recognition's subject to AI results"
   ;
   static const String performancemodeinfo =
       "1. Humanoid Detection is enabled by Default, and the recording time is automatically extended\n\n"
       "2. Default Humanoid Sensitivity\n\n"
-      "Turn on AI, humanoid recognitionis subject to AI results" ;
+      "Turn on AI, humanoid recognition's subject to AI results" ;
 
   static const String show = "Show";
   static const String volume = "Volume";
@@ -36,7 +62,7 @@ class MyStrings {
   static const String cuttingedgeprotectionalwaysconnected = "Cutting-edge protection, always connected, always in control. Professional Installation, Real-Time Monitoring, Zero Worries.";
   static const String pleaseenteremailaddressforyourbackupaccount = "Please enter email address for your backup account";
   static const String emailuserid= "Email (User ID)";
-  static const String enterfourdigitcodeforautenticationapp= "Enter 4-digit code for autentication app";
+  static const String enterfourdigitcodeforautenticationapp= "Enter 4-digit code for authentication app";
   static const String userid= "User ID";
     static const String emailhinttext= "Enter Email";
     static const String enteruserid= "Enter User ID";
@@ -206,7 +232,7 @@ class MyStrings {
   static const String wildanimals = "Wild Animals";
   static const String birds = "Birds";
   static const String imagedetection = "Image Detection";
-  static const String alarmmanagementy = "Alarm Managementy";
+  static const String alarmmanagementy = "Alarm Management";
   static const String receivealarmnotifications = "Receive Alarm Notifications";
   static const String motionalarm = "Motion Alarm";
   static const String searchingnearbydevices = "Searching nearby devices";
@@ -216,7 +242,7 @@ class MyStrings {
   static const String humanoiddetectionsensitivity = "Humanoid Detection Sensitivity";
   static const String motiondetectioncontentone = "If there are frequent false alarm pushes, please reduce the sensitivity. If it has occasionally missed some events, please increase the sensitivity.";
   static const String motiondetectioncontenttwo = "This sensitivity will be automatically adjusted when alarms occur frequently.";
-  static const String motiondetectioncontentthree = "The alarm is enabled only when a human body shape is detected, and disabled when oher moving objects are detected;";
+  static const String motiondetectioncontentthree = "The alarm is enabled only when a human body shape is detected, and disabled when other moving objects are detected;";
   static const String deviseshare = "Device Share";
   static const String thisdevicehasnotbeensharedwithanyone = "This device has not been shared with anyone.";
   static const String enteraccount = "Enter Account";
@@ -1292,11 +1318,29 @@ class MyStrings {
   static String starttime  = 'Start Time'.tr;
   static String endtime  = 'End Time'.tr;
   static String repeat  = 'Repeat'.tr;
-  // static String repeat  = 'Repeat'.tr;
-  // static String repeat  = 'Repeat'.tr;
-  // static String repeat  = 'Repeat'.tr;
-  // static String repeat  = 'Repeat'.tr;
-  // static String repeat  = 'Repeat'.tr;
+
+  ///General settings
+  static String popupreminder  = 'Pop up when receiving a message'.tr;
+  static String popupreminderdesc  = 'After enabling this function, when the app is opened, a pop up reminder will be displayed when an alarm message is received.'.tr;
+   static String receivepromotionalmessages  = 'Receive Promotional Messages'.tr;
+   static String emailtoreceivepromotionalactivity   = 'E-mail to receive promotional activity messages'.tr;
+   static String turnonhardwaredecoding  = 'Turn on hardware decoding'.tr;
+   static String afterenablingthisfunction  = 'After enabling this function, the video can be played smoothly, and the heat caused by the soft decoding of the CPU of the mobile phone can’t be relieved (a few models have video playback crashes or black screens).'.tr;
+  static String playvideoinasmallwindow  = 'Play video in a small window'.tr;
+  static String livebroadcastinasmallwindow   = 'Live broadcast in a small window to view the real-time image of the camera.'.tr;
+  static String language  = 'Language'.tr;
+  static String intercomsettings  = 'Intercom Settings'.tr;
+  static String ipaddresssettings  = 'IP Address Settings'.tr;
+  static String appversion  = 'App Version'.tr;
+  static String applog  = 'App Log'.tr;
+  static String clearcache  = 'Clear Cache'.tr;
+  static String followthesystem  = 'Follow the System'.tr;
+  static String english  = 'English'.tr;
+  static String deleteaccount  = 'Delete Account'.tr;
+  static String chinese  = 'Chinese'.tr;
+  static String francais  = 'Francais'.tr;
+  static String deutsch  = 'Deutsch'.tr;
+  static String espanol  = 'Spanish'.tr;
 
 
 }

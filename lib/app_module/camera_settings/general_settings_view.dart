@@ -57,6 +57,7 @@ class GeneralSettingsView extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade200),
               ),
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.to(() =>  InstallationGuide());
                 },
@@ -91,6 +92,7 @@ class GeneralSettingsView extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade200),
               ),
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                     onTap: () {
                       // Get.to(() =>  WirelessChime());
                     },
@@ -143,6 +145,7 @@ class GeneralSettingsView extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade200),
               ),
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.to(() =>  BatteryManagementView());
                 },
@@ -183,6 +186,7 @@ class GeneralSettingsView extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade200),
               ),
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   // Get.to(() =>  WirelessChime());
                 },

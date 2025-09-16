@@ -6,11 +6,10 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Paddings/AppPaddings.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
-import 'google_assistant_view.dart';
-import 'link_with_alexa.dart';
 
-class AdvancedSettings extends StatelessWidget {
-  AdvancedSettings({Key? key}) : super(key: key);
+
+class ClearCacheGeneralSettings extends StatelessWidget {
+  ClearCacheGeneralSettings({Key? key}) : super(key: key);
 
   final CameraSettingController c = Get.put(CameraSettingController());
 
@@ -26,7 +25,7 @@ class AdvancedSettings extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.imagesettings.tr,
+          text: MyStrings.clearcache.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
@@ -39,12 +38,13 @@ class AdvancedSettings extends StatelessWidget {
         padding: AppPaddings.defaultPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // Anti-flicker tile
+
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: () {
-                Get.to(() =>  LinkWithAlexa());
+               // Get.to(() =>  FamilySettings());
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
@@ -64,21 +64,38 @@ class AdvancedSettings extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AppText(
-                      text: MyStrings.linkwithalexa.tr,
+                      text: MyStrings.alarmpicture.tr,
                       size: AppDimensions.FONT_SIZE_14,
                       fontWeight: FontWeight.w500,
                       color: MyColor.primaryColor,
                     ),
-                    Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                    Row(
+                      children: [
+                        AppText(
+                          text: "0B",
+                          size: AppDimensions.FONT_SIZE_12,
+                          fontWeight: FontWeight.w500,
+                          color: MyColor.rideSub,
+                        ),
+                        Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ),
             const SizedBox(height: 10),
+            AppText(
+              text: MyStrings.appreceivesallalarmpictures.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            const SizedBox(height: 10),
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: () {
-                Get.to(() => GoogleAssistantView());
+                // Get.to(() =>  FamilySettings());
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
@@ -98,16 +115,34 @@ class AdvancedSettings extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AppText(
-                      text: MyStrings.googlehome.tr,
+                      text: MyStrings.temporaryfiles.tr,
                       size: AppDimensions.FONT_SIZE_14,
                       fontWeight: FontWeight.w500,
                       color: MyColor.primaryColor,
                     ),
-                    Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                    Row(
+                      children: [
+                        AppText(
+                          text: "12.9MB",
+                          size: AppDimensions.FONT_SIZE_12,
+                          fontWeight: FontWeight.w500,
+                          color: MyColor.rideSub,
+                        ),
+                        Icon(Icons.chevron_right, color: MyColor.primaryColor),
+                      ],
+                    ),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 10),
+            AppText(
+              text: MyStrings.apptemporaryfiles.tr,
+              size: AppDimensions.FONT_SIZE_12,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
+            const SizedBox(height: 10),
           ],
         ),
       ),

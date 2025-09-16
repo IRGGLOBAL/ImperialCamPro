@@ -51,6 +51,7 @@ class FamilyManagementView extends StatelessWidget {
             const SizedBox(height: 10),
             // Anti-flicker tile
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () {
                 Get.to(() =>  FamilySettings());
               },
@@ -92,6 +93,7 @@ class FamilyManagementView extends StatelessWidget {
             const SizedBox(height: 10),
             // Cloud Storage Card
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                 Get.to(CreateFamilyView());
               },
@@ -132,6 +134,7 @@ class FamilyManagementView extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                 Get.to(JoinFamilyView());
               },

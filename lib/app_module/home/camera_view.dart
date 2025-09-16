@@ -179,6 +179,7 @@ class _TabItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Column(
         children: [
@@ -533,6 +534,7 @@ class _FeatureIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,

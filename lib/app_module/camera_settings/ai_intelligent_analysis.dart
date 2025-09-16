@@ -83,6 +83,7 @@ class _AiIntelligentAnalysisState extends State<AiIntelligentAnalysis> {
 
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(CloudStorageSetting());},
                     child:  Container(

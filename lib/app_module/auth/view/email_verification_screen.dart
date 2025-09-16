@@ -44,6 +44,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               top: 16,
               left: 16,
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.back();
                 },
@@ -171,6 +172,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                               width: 5,
                             ),
                             GestureDetector(
+                              behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 Get.to(SignUpScreen());
                               },

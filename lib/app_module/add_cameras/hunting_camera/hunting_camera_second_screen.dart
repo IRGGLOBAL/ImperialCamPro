@@ -46,6 +46,7 @@ class HuntingCameraSecondScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(() => HuntingCameraBluetoothDistribution());
                     },
@@ -89,6 +90,7 @@ class HuntingCameraSecondScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(HuntingCameraQrCode());
                     },

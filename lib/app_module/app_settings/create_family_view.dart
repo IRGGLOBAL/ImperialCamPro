@@ -61,6 +61,7 @@ class CreateFamilyView extends StatelessWidget {
                       child:  Column(
                         children: [
                           GestureDetector(
+                            behavior: HitTestBehavior.translucent,
                             onTap: () {
                               Get.dialog(
                                 Dialog(
@@ -164,6 +165,7 @@ class CreateFamilyView extends StatelessWidget {
 
                           SizedBox(height: 10,),
                           GestureDetector(
+                            behavior: HitTestBehavior.translucent,
                             onTap: () {
                               Get.dialog(
                                 Dialog(

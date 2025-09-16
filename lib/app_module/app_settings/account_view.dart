@@ -127,6 +127,7 @@ class _QuestionItem extends StatelessWidget {
       children: [
         // Question row
         GestureDetector(
+          behavior: HitTestBehavior.translucent,
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),

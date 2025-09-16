@@ -42,6 +42,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               top: 16,
               left: 16,
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.back();
                 },

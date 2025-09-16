@@ -119,6 +119,7 @@ class BabyMonitorView extends StatelessWidget {
       String title,
       ) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: () => controller.selectTile(index),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
@@ -205,6 +206,7 @@ class _QuestionItem extends StatelessWidget {
       children: [
         // Question row
         GestureDetector(
+          behavior: HitTestBehavior.translucent,
           onTap: onTap,
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),

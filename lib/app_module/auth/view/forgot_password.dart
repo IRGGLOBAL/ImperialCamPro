@@ -44,6 +44,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               top: 16,
               left: 16,
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.back();
                 },
@@ -201,6 +202,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               width: 5,
                             ),
                             GestureDetector(
+                              behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 Get.to(SignUpScreen());
                               },

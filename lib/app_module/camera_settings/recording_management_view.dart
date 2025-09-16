@@ -67,6 +67,7 @@ class RecordingManagementView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                      // Get.to(() =>  WirelessChime());
                     },
@@ -129,6 +130,7 @@ class RecordingManagementView extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade200),
               ),
               child: GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   //Get.to(() =>  WirelessChime());
                 },

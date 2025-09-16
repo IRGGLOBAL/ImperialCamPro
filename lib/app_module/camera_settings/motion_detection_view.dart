@@ -440,6 +440,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                           /// Show help icon only for power saving & performance
                           if (mode != MyStrings.custommode.tr)
                             GestureDetector(
+                              behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 String title = '';
                                 String message = '';
@@ -514,6 +515,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
 
             SizedBox(height: 16,),
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () {
                 Get.to(() =>  MotionDetectionAlertPlan());
               },
@@ -554,6 +556,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
             ),
             SizedBox(height: 16,),
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () {
                 // Get.to(() =>  AntiFlickerSetting());
               },

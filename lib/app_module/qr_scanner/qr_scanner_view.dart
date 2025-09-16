@@ -35,6 +35,7 @@ class QrScannerView extends StatelessWidget {
         actions: [
           // small circular gallery icon (top-right)
           GestureDetector(
+            behavior: HitTestBehavior.translucent,
               onTap: () => c.pickFromGallery(),
               child: SvgPicture.asset(
                 MyImages.opengallery,
@@ -133,6 +134,7 @@ class QrScannerView extends StatelessWidget {
                       color: MyColor.transparentColor,
                   ),
                   child: GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                         onTap: () {
                           // brightness help action
                           debugPrint('${MyStrings.brightnesshelptapped.tr}');
@@ -148,6 +150,7 @@ class QrScannerView extends StatelessWidget {
                                textAlign: TextAlign.center,),
                              SizedBox(width: 6),
                             GestureDetector(
+                              behavior: HitTestBehavior.translucent,
                               onTap: () {
                                 // click here action
                                 debugPrint('${MyStrings.clickherepressed.tr}',);

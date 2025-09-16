@@ -55,6 +55,7 @@ class CloudStorageSetting extends StatelessWidget {
           children: [
             // Cloud Storage Card
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                 Get.to(CloudStorageServiceDetail());
               },

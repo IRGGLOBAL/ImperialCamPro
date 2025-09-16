@@ -107,6 +107,7 @@ class _AlarmManagementViewState extends State<AlarmManagementView> {
             ),
             SizedBox(height: 10,),
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                 Get.to(MotionDetectionView());
               },

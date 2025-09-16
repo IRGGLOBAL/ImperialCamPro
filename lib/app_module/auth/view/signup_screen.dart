@@ -44,6 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
                   onTap: () {
                     Get.back();
                     },
@@ -295,6 +296,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(width: 5,),
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       Get.to(LoginScreen());
                     },

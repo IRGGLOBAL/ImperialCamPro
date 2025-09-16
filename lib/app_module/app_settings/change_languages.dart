@@ -6,11 +6,10 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Paddings/AppPaddings.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
-import '../qr_scanner/qr_scanner_view.dart';
-import 'anti_flicker_setting.dart';
 
-class ImageSettings extends StatelessWidget {
-  ImageSettings({Key? key}) : super(key: key);
+
+class ChangeLanguages extends StatelessWidget {
+  ChangeLanguages({Key? key}) : super(key: key);
 
   final CameraSettingController c = Get.put(CameraSettingController());
 
@@ -26,11 +25,25 @@ class ImageSettings extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.imagesettings.tr,
+          text: MyStrings.language.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: AppText(
+              text: "${MyStrings.done.tr}",
+              size: AppDimensions.FONT_SIZE_14,
+              fontWeight: FontWeight.w500,
+              color: MyColor.secondaryColor,
+              onTap: (){
+               // Get.to(MyOrders());
+              },
+            ),
+          ),
+        ],
         backgroundColor: Colors.white,
         surfaceTintColor: MyColor.transparentColor,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -40,43 +53,8 @@ class ImageSettings extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Anti-flicker tile
-            GestureDetector(
-              behavior: HitTestBehavior.translucent,
-              onTap: () {
-                Get.to(() =>  AntiFlickerSetting());
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-                decoration: BoxDecoration(
-                  color: MyColor.colorWhite,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.shade200,
-                      blurRadius: 2,
-                      offset: const Offset(2, 2),
-                    ),
-                  ],
-                  border: Border.all(color: Colors.grey.shade200),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppText(
-                      text: MyStrings.antiflickersetting.tr,
-                      size: AppDimensions.FONT_SIZE_14,
-                      fontWeight: FontWeight.w500,
-                      color: MyColor.primaryColor,
-                    ),
-                    Icon(Icons.chevron_right, color: MyColor.primaryColor),
-                  ],
-                ),
-              ),
-            ),
 
             const SizedBox(height: 20),
-
             // Choose Mode card
             Container(
               padding: const EdgeInsets.all(16),
@@ -95,36 +73,41 @@ class ImageSettings extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppText(
-                    text: MyStrings.choosemode.tr,
-                    size: AppDimensions.FONT_SIZE_14,
-                    fontWeight: FontWeight.w500,
-                    color: MyColor.primaryColor,
-                  ),
-                  const SizedBox(height: 16),
 
+                  // AppText(
+                  //   text: MyStrings.followthesystem.tr,
+                  //   size: AppDimensions.FONT_SIZE_14,
+                  //   fontWeight: FontWeight.w500,
+                  //   color: MyColor.primaryColor,
+                  // ),
+                  // const SizedBox(height: 20),
+                  // Divider(thickness: 0.5,color: MyColor.borderColor,),
                   // Radio options with Obx
-                Column(
+
+                  Column(
                     children: [
                       _buildRadioOption(
-                        value: "automatic",
-                        title: "Automatic: Automatically switch Day/Night Mode",
-                        description:
-                        "Automatic - Allow the camera to control the infrared filter based on the amount of light in the scene.",
+                        title: MyStrings.followthesystem.tr,
                       ),
-                      const Divider(),
+                      Divider(thickness: 0.5,color: MyColor.borderColor,),
                       _buildRadioOption(
-                        value: "day",
-                        title: "Day Mode: Stream only in color",
-                        description:
-                        "Day Mode - The camera will only stream in color. This mode is not suitable for use at night without lighting.",
+                        title:  MyStrings.english.tr,
                       ),
-                      const Divider(),
+                      Divider(thickness: 0.5,color: MyColor.borderColor,),
                       _buildRadioOption(
-                        value: "night",
-                        title: "Night Mode: Stream in black and white",
-                        description:
-                        "Night Mode - The camera will only stream in black and white. It is recommended for use during the day or in a well-lit environment.",
+                        title:  MyStrings.chinese.tr,
+                      ),
+                      Divider(thickness: 0.5,color: MyColor.borderColor,),
+                      _buildRadioOption(
+                        title:  MyStrings.francais.tr,
+                      ),
+                      Divider(thickness: 0.5,color: MyColor.borderColor,),
+                      _buildRadioOption(
+                        title:  MyStrings.deutsch.tr,
+                      ),
+                      Divider(thickness: 0.5,color: MyColor.borderColor,),
+                      _buildRadioOption(
+                        title:  MyStrings.espanol.tr,
                       ),
                     ],
                   ),
@@ -138,14 +121,12 @@ class ImageSettings extends StatelessWidget {
   }
 
   Widget _buildRadioOption({
-    required String value,
     required String title,
-    required String description,
   }) {
     return InkWell(
-      onTap: () => c.changeMode(value),
+      onTap: () => c.changeMode(title),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // Texts
           Expanded(
@@ -159,21 +140,15 @@ class ImageSettings extends StatelessWidget {
                   color: MyColor.primaryColor,
                 ),
                 const SizedBox(height: 4),
-                AppText(
-                  text: description,
-                  size: AppDimensions.FONT_SIZE_12,
-                  fontWeight: FontWeight.w400,
-                  color: MyColor.primaryColor,
-                ),
               ],
             ),
           ),
           // check button
           Obx(() => Checkbox(
-            value: c.selectedMode.value == value, // Compare with current selected mode
+            value: c.selectedMode.value == title, // Compare with current selected mode
             onChanged: (val) {
               if (val != null && val) {
-                c.changeMode(value); // Only change mode when checked (val is true)
+                c.changeMode(title); // Only change mode when checked (val is true)
               }
             },
             shape: const CircleBorder(),

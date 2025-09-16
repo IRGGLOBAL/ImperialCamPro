@@ -154,6 +154,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
    print("showClearIcon: ${showClearIcon}");
     if (showClearIcon || (widget.suffixSvgIcon != null && widget.suffixSvgIcon!.isNotEmpty)) {
       return GestureDetector(
+        behavior: HitTestBehavior.translucent,
         onTap: _handleSuffixTap,
         child: Padding(
           padding: const EdgeInsets.only(right: 12.0),
@@ -173,6 +174,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     if (widget.isShowSuffixIcon) {
       if (widget.isPassword) {
         return GestureDetector(
+          behavior: HitTestBehavior.translucent,
           onTap: _toggle,
           child: Padding(
             padding: const EdgeInsets.only(right: 5.0),

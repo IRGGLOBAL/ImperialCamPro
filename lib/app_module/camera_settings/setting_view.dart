@@ -56,6 +56,7 @@ class SettingView extends StatelessWidget {
 
             // Device Info Section
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                Get.to(DeviceInformation()) ;
               },
@@ -286,6 +287,7 @@ class SettingView extends StatelessWidget {
   // Reusable Grid Item
   static Widget _gridItem( String svgPath, String title,{VoidCallback? onTap}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10),
@@ -329,6 +331,7 @@ class SettingView extends StatelessWidget {
   // Reusable Settings Tile
   static Widget _settingsTile(String svgPath, String title,{VoidCallback? onTap}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),

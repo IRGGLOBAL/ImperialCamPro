@@ -61,6 +61,7 @@ class HelpSettingsView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final item = controller.items[index];
                   return GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () => controller.selectItem(index),
                     child: Container(
                       width: Get.width *0.22,
@@ -167,6 +168,7 @@ class HelpSettingsView extends StatelessWidget {
   // Reusable Settings Tile
   static Widget _settingsTile(String svgPath, String title,{VoidCallback? onTap}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),

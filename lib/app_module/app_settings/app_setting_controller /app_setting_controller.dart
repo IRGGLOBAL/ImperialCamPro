@@ -1,5 +1,3 @@
-
-
 import 'package:campro/utils/Images/my_images.dart';
 import 'package:campro/utils/custom_widget/my_color.dart';
 import 'package:campro/utils/custom_widget/strings.dart';
@@ -50,7 +48,7 @@ class AppSettingController extends GetxController {
       ),
       ListItem(
         svgAsset: MyImages.helpsettinglisticon,
-        text:  "${MyStrings.thirdstfront.tr}",
+        text:  "${MyStrings.walnutfrontwindows.tr}",
         color: MyColor.secondaryColor,
       ),
     ]);
@@ -500,4 +498,132 @@ class AppSettingController extends GetxController {
     return expandedQuestions[index] == true;
   }
 
+
+
+  ///Subscription Plans
+
+  // Top category selection
+  var selectedCategoryIndex = 0.obs;
+
+  // Plan selection inside category
+  var selectedPlanIndex = 0.obs;
+  var agreed = false.obs;
+  // In your controller or view file
+  List<String> splitName(String fullName) {
+    switch (fullName) {
+      case "Plus Smart AI":
+        return ["Plus", "Smart AI"];
+      case "Basic Recording 30 days":
+        return ["Basic", "30 days recording"];
+      case "Basic Recording 7 days":
+        return ["Basic", "7 days recording"];
+      case "Basic Continuous Recording":
+        return ["Basic", "continuous recording"];
+      default:
+        return [fullName, ""];
+    }
+  }
+  // Categories (with their plans & details)
+  final categories = [
+    {
+      "name": "Plus",
+      "plans": [
+        {
+          "title": "Annually",
+          "price": "US\$69.99/year",
+          "details": [
+            "All basic features",
+            "Person & vehicle recognition, animals & package detection",
+            "Alarm sound detection, flame detection, falling detection",
+            "Searching for specified video [Beta]",
+          ]
+        },
+        {
+          "title": "Monthly",
+          "price": "US\$6.99/month",
+          "details": [
+            "All basic features",
+            "Person & vehicle recognition, animals & package detection",
+            "Alarm sound detection, flame detection, falling detection",
+            "Searching for specified video [Beta]",
+          ]
+        },
+      ].obs,
+    },
+    {
+      //"name": "Basic Recording",
+      "name": "Basic",
+      "plans": [
+        {
+          "title": "Annually",
+          "price": "US\$49.99/year",
+          "details": [
+            "30-days event based cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+        {
+          "title": "Monthly",
+          "price": "US\$4.99/month",
+          "details": [
+            "30-days event based cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+
+      ].obs,
+    },
+    {
+      "name": "Basic",
+      "plans": [
+        {
+          "title": "Annually",
+          "price": "US\$39.99/year",
+          "details": [
+            "7-days event based cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+        {
+          "title": "Monthly",
+          "price": "US\$3.99/month",
+          "details": [
+            "7-days event based cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+      ].obs,
+    },
+    {
+      "name": "Basic",
+      "plans": [
+        {
+          "title": "Annually",
+          "price": "US\$149.99/year",
+          "details": [
+            "30-days-continuous cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+        {
+          "title": "Monthly",
+          "price": "US\$14.99/month",
+          "details": [
+            "30-days-continuous cloud storage",
+            "Motion and sound alerts",
+            "Complete video of motion and sound events",
+          ]
+        },
+      ].obs,
+    },
+  ];
 }
+
+
+
+

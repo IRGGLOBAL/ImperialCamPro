@@ -11,6 +11,7 @@ import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
 import '../camera_settings/general_settings_view.dart';
 import 'album_settings_view.dart';
+import 'app_general_settings.dart';
 import 'help_settings_view.dart';
 import 'my_service_view.dart';
 
@@ -198,7 +199,7 @@ class AppSettings extends StatelessWidget {
                   border: Border.all(color: Colors.grey.shade200),
                 ),
                 child: _settingsTile(MyImages.generalsettings, "${MyStrings.settings.tr}",
-                  onTap: () {Get.to(GeneralSettingsView());},)),
+                  onTap: () {Get.to(AppGeneralSettings());},)),
             SizedBox(height: 30),
           ],
         ),
@@ -206,9 +207,12 @@ class AppSettings extends StatelessWidget {
     );
   }
 
+
   // Reusable Settings Tile
+
   static Widget _settingsTile(String svgPath, String title,{VoidCallback? onTap}) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),

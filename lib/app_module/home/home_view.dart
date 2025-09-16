@@ -460,6 +460,7 @@ class CameraCard extends StatelessWidget {
 
           /// Preview area (grey background for now)
           GestureDetector(
+            behavior: HitTestBehavior.translucent,
             onTap: () {
               Get.to(CameraView(/*cameraName: '',*/));
             },

@@ -81,6 +81,7 @@ int index2=0;
 
               /// Router setup
               GestureDetector(
+                behavior: HitTestBehavior.translucent,
                 onTap: () {
                   Get.to(CommonRouterSetupScreen());
                 },
@@ -116,6 +117,7 @@ int index2=0;
                 inputAction: TextInputAction.next,
                 isborderNone: false,
                 suffixWidget: GestureDetector(
+                  behavior: HitTestBehavior.translucent,
                   onTap: () {
                     controller.openWifiSettings();
                   },

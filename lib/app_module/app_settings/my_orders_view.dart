@@ -40,6 +40,7 @@ class MyOrders extends StatelessWidget {
 
             // Cloud Storage Card
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: (){
                 //Get.to(CloudStorageServiceDetail());
               },

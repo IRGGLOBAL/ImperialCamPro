@@ -43,6 +43,7 @@ class ChimeSettings extends StatelessWidget {
           children: [
             // Anti-flicker tile
             GestureDetector(
+              behavior: HitTestBehavior.translucent,
               onTap: () {
                 Get.to(() =>  WirelessChime());
               },
