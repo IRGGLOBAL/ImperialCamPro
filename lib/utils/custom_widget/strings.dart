@@ -15,6 +15,7 @@ class MyStrings {
   static const String bluetoothdeviceslist = "Bluetooth Devices List";
   static const String selected = "Selected";
   static const String selectall = "Select All";
+  static const String selectdevice = "Select Device";
   static const String gosettings = "Go Settings";
   static const String locallog = "Local log";
   static const String alarmpicture = "Alarm Picture";
@@ -57,7 +58,7 @@ class MyStrings {
   static const String emailaddress = "Email Address";
   static const String beginyourjourneytoday = "Begin Your Journey Today";
   static const String welcomebackpleaselogintocontinue = "Welcome back, please login to continue";
-  static const String pleaseenternewpasswordforkeepyouaccount = "Please enter new password for keep you account";
+  static const String pleaseenternewpasswordforkeepyouaccount = "Please enter new password for keep your account";
   static const String backtohomeandloginyouraccount = "Back to home and login your account";
   static const String cuttingedgeprotectionalwaysconnected = "Cutting-edge protection, always connected, always in control. Professional Installation, Real-Time Monitoring, Zero Worries.";
   static const String pleaseenteremailaddressforyourbackupaccount = "Please enter email address for your backup account";
@@ -114,6 +115,7 @@ class MyStrings {
   static const String alert  = "Alert";
   static const String alertplan  = "Alert Plan";
   static const String humanoidalarmarea  = "Humanoid Alarm Area";
+  static const String humanoiddetection  = "Humanoid Detection";
   static const String setthetimeperiodofthealarm = "Set the time period of the alarm, the device only triggers an alarm event during this time period.";
   static const String tousethefunctionpleasemakesure = "To use the function, please make sure that the humanoid detection function is turned on";
   static const String live  = "Live";
@@ -155,6 +157,9 @@ class MyStrings {
   static const cancel = "Cancel";
   static const armed = "Armed";
   static const offline = "Offline";
+  static const searchingfornearbydevices = "Searching for Nearby Devices";
+  static const pleasemakesurethedeviceisin = "Please make sure the device is in ";
+  static const distributionnetworkstatus = "Distribution network status";
   static const waitingforbluetoothpermission = "Waiting for Bluetooth Permission";
   static const selectacategorytoviewcameras = "Select a category to view cameras";
   static const backdoor = "Backdoor";
@@ -177,6 +182,7 @@ class MyStrings {
   static const videoencryption = "Video Encryption";
   static const recordingmanagement = "Recording Management";
   static const generalsettings = "General Settings";
+  static const advancedsettings = "Advanced Settings";
   static const advancedservice = "Advanced Service";
   // App Bar
   static const String deviceInformation = "Device Information";
@@ -211,12 +217,13 @@ class MyStrings {
   static const String cloudstorage = "Cloud Storage";
   static const String canbind = "Can bind";
   static const String devices = "devices";
-  static const String aiintelligentanalys = "AI intelligent analysis";
+  static const String aiintelligentanalys = "AI Intelligent Analysis";
   static const String fourgdataplan = "4G Data Plan";
   static const String myservice = "My Service";
   static const String familymanagement = "Family Management";
   static const String share = "Share";
   static const String help = "Help";
+  static const String automaticsensitivitycorrection = "Automatic Sensitivity Correction";
   static const String annualdaycyclestorage = "Annual/30-day cycle storage, AI recognition, rate controlled playback, etc";
   static const String check = "Check";
   static const String mattersneedattention = "Matters Need Attention:";
@@ -244,8 +251,10 @@ class MyStrings {
   static const String motiondetectioncontenttwo = "This sensitivity will be automatically adjusted when alarms occur frequently.";
   static const String motiondetectioncontentthree = "The alarm is enabled only when a human body shape is detected, and disabled when other moving objects are detected;";
   static const String deviseshare = "Device Share";
+  static const String timeperiodsetting = "Time Period Setting";
   static const String thisdevicehasnotbeensharedwithanyone = "This device has not been shared with anyone.";
   static const String enteraccount = "Enter Account";
+  static const String automaticallyrenewseveryyear = "*Automatically renews every year, can be cancelled at any time.";
   static const String recentcontacts = "Recent Contacts";
   static const String nocontacts = "No Contacts";
   static const String nodata = "No Data";
@@ -266,6 +275,7 @@ class MyStrings {
   static const String ifthedevicepasswordcannotberetrieved = "If the device password cannot be retrieved, user can turn off the Encryption Switch to use the device. But the previously encrypted pictures and videos still need to be decrypted with the old password.";
   static const String videoswitch = "Video Switch";
   static const String eventecording = "Event Recording";
+  static const String eventcloudstorage = "Event Cloud Storage";
   static const String sdcardcapacity = "SD Card Capacity";
   static const String capacity = "Capacity";
   static const String nosdcard = "No SD Card";
@@ -274,8 +284,11 @@ class MyStrings {
   static const String previewtimeoutpopupreminder = "Preview timeout pop-up reminder";
   static const String popupwindowreminderwhenlivestreaming = "Pop-up window reminder when live streaming";
   static const String batterymanagement = "Battery Management";
+  static const String thecurrentpackagesupports = "*The current package supports transferring to other devices for binding.";
   static const String timesetting = "Time Setting";
   static const String hourclock = "12-Hour Clock";
+  static const String subscriptionplan = "Subscription Plan";
+
   // Guide steps notes
   static const String guideNote1 = "*The product shall prevail in kind";
   static const String guideNote2 = "*Beware ";
@@ -306,7 +319,7 @@ class MyStrings {
   static const String googleassistantcontent3 = "2. Configure Google Home device";
   static const String googleassistantcontent4 =
       "(If you have already configured Google Home, you can skip this step. The following instructions are based on the IOS client)\n\n"
-      "1. Make sure your Google Home device is powered on and connected to a Wifi network."
+      "1. Make sure your Google Home device is powered on and connected to a Wifi network.\n\n"
       "2. Open the Google Home App on your phone. After successful login, tap on the “Get Start”";
   static const String googleassistantcontent5 = "3. Then select “Works with Google” to set up device";
   static const String googleassistantcontent6 = "4. Find Imperial Campro on the list and open it.";
@@ -314,6 +327,8 @@ class MyStrings {
   static const String googleassistantcontent8 = "3. Control your smart device with Google Home";
   static const String googleassistantcontent9 = "Now you can control your smart device with Google Home. With the bedroom light as an example, the supported commands include (Google Home currently only supports English commands)";
   static const String googleassistantcontent0 = "ok Google, show me camera";
+  static const String googleassistantcontent11 = "How to connect to Google Assistant";
+  static const String googleassistant = "Google Assistant";
   static const String cloudstorageserviceeventaiplus = "Cloud Storage Service (Event+AI Plus)";
   static const String orderno = "Order No:";
   static const String order = "Order";
@@ -342,12 +357,13 @@ class MyStrings {
   static const String search = "Search";
   static const String save = "Save";
   static const String adddevice = "Add Device";
-  static const String nodevice = "No Device";
+  static const String nodevice = "No Devices";
   static const String sharedevices = "Share Devices";
   static const String familyshare = "Family Share";
   static const String accept = "Accept";
   static const String imperialtechshome = "IMPERIAL TECH's home";
   static const String imperial = "IMPERIAL";
+  static const String imperialcloudstorage = "Imperial Cloud Storage";
   static const String walnutdoorbell = "Walnut Doorbell";
   static const String joinfamilysuccess = "Join family success";
   static const String imperialhomesecurityhasagreedtojoin  = "Imperial Home Security has agreed to join your IMPERIAL TECH's home family group";
@@ -1178,8 +1194,9 @@ class MyStrings {
   static const String paidsubscriptionque1 = "How to cancel continuous monthly services?" ;
   static const String paidsubscriptionque2 = "4G traffic&cloud storage and AI refund strategy" ;
   static const String paidsubscriptionque3 = "How to cancel  the continuous  monthly subscription service in Paypal?" ;
-  static const String paidsubscriptionque4 = "How to cancel the continuous monthly subscription service in Google Play?" ;
+  static const String paidsubscriptionque4 = "How to cancel the continuous monthly subscription service in Google Play? First How to unsubscribe from Google Play store on the Android? " ;
   static const String paidsubscriptionque5 = "How apple cancels continuous monthly service" ;
+  static const String paidsubscriptionque6 = "How to cancel the continuous monthly subscription service in Google Play? Secondly How to unsubscribe from Google Play Store from the Web?" ;
 
 
   static const String paidsubscriptionans3 =
@@ -1239,7 +1256,15 @@ class MyStrings {
       "If you have used Paypal payment and the order is within six months, you can also contact our customer service to manually refund you;\n\n"
       "If you have used PayPal payment but your order has exceeded six months, you will need to apply for a refund on your own within the PayPal software." ;
 
-///Common Route Setup
+
+  static const String paidsubscriptionans7 =
+      "1. First, access the Google Play Store from the browser you have chosen. Select the “My Subscriptions” link in the left sidebar from there.\n\n"
+      "2. Next, click the “Manage” button associated with the subscription you want to cancel on the right side of the screen and select the “Unsubscribe” option at the bottom of the pop up menu.\n\n"
+      "3. Click on the subscription option on the list.\n\n"
+      "4. Finally, click the “Unsubscribe” button to confirm your decision." ;
+
+
+  ///Common Route Setup
 
   static const String routerSetupTitle = "Common Router Setup...";
   static const String routerSetupDesc =
@@ -1262,6 +1287,7 @@ class MyStrings {
   static String wifiNameHint = 'IRG Global'.tr;
   static String wifiPasswordHint = 'Input Wi-Fi Password'.tr;
   static String addbatterycamera = 'Add Battery Camera'.tr;
+  static String addcamera = 'Add Camera'.tr;
   static String holdthedevicepowerbutton  = 'Hold the device power button to start the device'.tr;
   static String pressthebatterycamerabuttontowakeup = 'Press the [battery camera] button to wake up the device if it is asleep.\n\nPlease stay near to your router for the best signal.'.tr;
   static String pleaseresetthedevice  = 'Please reset the device'.tr;
@@ -1271,6 +1297,7 @@ class MyStrings {
   static String adddoorbellcameratitle  = 'Please follow the Instruction Manual to power on the device'.tr;
   static String adddoorbellcamerasubtitle  = 'Please place the camera & phone close to your router for the best signal.'.tr;
   static String adddoorbellcameranextsubtitle  = 'Press the [Bell] button, and tap Next'.tr;
+  static String adddoorbellcameranextsubtitletwo  = 'Using the supplied reset pin, reset the device (please refer to the user manual for more on this)\nWait for the LED indicator to flash RED\nTap Next'.tr;
 
 
   ///power plugin camera

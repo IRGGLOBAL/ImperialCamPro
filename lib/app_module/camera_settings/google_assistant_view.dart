@@ -27,7 +27,7 @@ class GoogleAssistantView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.linkwithalexa.tr,
+          text: MyStrings.googleassistant.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
@@ -50,6 +50,14 @@ class GoogleAssistantView extends StatelessWidget {
                   height: 100,
                 ),
               ],
+            ),
+            const SizedBox(height: 30),
+
+            AppText(
+              text: MyStrings.googleassistantcontent11.tr,
+              size: AppDimensions.FONT_SIZE_16,
+              fontWeight: FontWeight.w600,
+              color: MyColor.primaryColor,
             ),
             const SizedBox(height: 30),
             AppText(

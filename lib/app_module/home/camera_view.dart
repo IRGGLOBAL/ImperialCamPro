@@ -446,13 +446,16 @@ class udTabContentState extends State<udTabContent> {
     {'svgPath': MyImages.album, 'label': MyStrings.album.tr, 'onTap': () {}},
     {'svgPath': MyImages.trash, 'label': MyStrings.delete.tr, 'onTap': () {}},
   ];
+  final HomeController c = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
+
     // Calculate how many pages we need (6 items, 6 per page)
     final int pageCount = (_featureItems.length / 6).ceil();
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: PageView.builder(
@@ -491,7 +494,8 @@ class udTabContentState extends State<udTabContent> {
 
         // Dots indicator
         Container(
-          margin: const EdgeInsets.only(bottom: 100),
+          //color: MyColor.secondaryColor,
+          margin: const EdgeInsets.only(bottom: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(pageCount, (index) {
@@ -509,6 +513,43 @@ class udTabContentState extends State<udTabContent> {
             }),
           ),
         ),
+
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: GestureDetector(
+            onTap: () => c.pickDate(context),
+            child: Obx(
+                  () => Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                // decoration: BoxDecoration(
+                //   color: Colors.white,
+                //   borderRadius: BorderRadius.circular(8),
+                //   border: Border.all(color: MyColor.secondaryColor, width: 1),
+                // ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    AppText(
+                      text: c.formattedDate, // e.g. "22-08-2025"
+                      size: AppDimensions.FONT_SIZE_12,
+                      fontWeight: FontWeight.w500,
+                      color: MyColor.secondaryColor,
+                      textAlign: TextAlign.start,
+                    ),
+                    const SizedBox(width: 6),
+                    Icon(
+                      Icons.arrow_drop_down,
+                      color: MyColor.secondaryColor,
+                      size: 20,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 50,),
+
       ],
     );
   }

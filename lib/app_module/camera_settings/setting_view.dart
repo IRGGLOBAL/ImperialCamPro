@@ -211,7 +211,7 @@ class SettingView extends StatelessWidget {
               child: Column(
                 children: [
                   _settingsTile(MyImages.voicemessage, MyStrings.voicemessage.tr,
-                    onTap: () {Get.to(DeviceShareView());},),
+                    onTap: () {},),
                   _settingsTile(MyImages.videoencryption, MyStrings.videoencryption.tr,
                     onTap: () {Get.to(VideoEncryptionView());},),
                   _settingsTile(MyImages.recordingmanagement, MyStrings.recordingmanagement.tr,

@@ -198,7 +198,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                            AppText(
-                                text: MyStrings.motiondetection.tr,
+                                text: MyStrings.automaticsensitivitycorrection.tr,
                                 size: AppDimensions.FONT_SIZE_14,
                                 fontWeight: FontWeight.w500,
                                 color: MyColor.primaryColor,
@@ -265,7 +265,7 @@ class _MotionDetectionViewState extends State<MotionDetectionView> {
                       children: [
 
                           AppText(
-                            text:  MyStrings.detectionsensitivity.tr,
+                            text:  MyStrings.humanoiddetection.tr,
                             size: AppDimensions.FONT_SIZE_14,
                             fontWeight: FontWeight.w500,
                             color: MyColor.primaryColor,

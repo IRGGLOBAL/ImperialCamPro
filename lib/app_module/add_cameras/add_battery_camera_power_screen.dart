@@ -47,7 +47,7 @@ class AddBatteryCameraPowerScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         surfaceTintColor: MyColor.transparentColor,
         title: AppText(
-          text: MyStrings.addbatterycamera.tr,
+          text: MyStrings.addcamera.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
@@ -84,7 +84,7 @@ class AddBatteryCameraPowerScreen extends StatelessWidget {
               size: AppDimensions.FONT_SIZE_16,
               fontWeight: FontWeight.w600,
               color: MyColor.primaryColor,
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
 
             const SizedBox(height: 12),

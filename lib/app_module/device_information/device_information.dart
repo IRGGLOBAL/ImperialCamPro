@@ -13,7 +13,7 @@ class DeviceInformation extends StatelessWidget {
   Widget _infoTile(String title, String value,
       {bool copyable = false, Widget? trailing}) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 14),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -40,7 +40,7 @@ class DeviceInformation extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     color: MyColor.primaryColor,
                     textAlign: TextAlign.right,
-                    maxLines: 1,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis, // cut text if too long
                   ),
                 ),
@@ -72,7 +72,7 @@ class DeviceInformation extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.deviceInformation.tr, // Using string constant
+          text: MyStrings.deviceInformation.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
@@ -87,7 +87,7 @@ class DeviceInformation extends StatelessWidget {
           children: [
             // First Card (Device Name, SN, Location)
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(
                 color: MyColor.colorWhite,
                 borderRadius: BorderRadius.circular(12),
@@ -105,18 +105,18 @@ class DeviceInformation extends StatelessWidget {
               child: Column(
                 children: [
                   _infoTile(
-                    MyStrings.deviceName.tr, // Using string constant
-                    MyStrings.deviceNameValue.tr, // Using string constant
+                    MyStrings.deviceName.tr,
+                    MyStrings.deviceNameValue.tr,
                     trailing: Icon(Icons.chevron_right, color: MyColor.primaryColor),
                   ),
                   _infoTile(
-                    MyStrings.sn.tr, // Using string constant
-                    MyStrings.snValue.tr, // Using string constant
+                    MyStrings.sn.tr,
+                    MyStrings.snValue.tr,
                     copyable: true,
                   ),
                   _infoTile(
-                    MyStrings.locationManagement.tr, // Using string constant
-                    MyStrings.locationValue.tr, // Using string constant
+                    MyStrings.locationManagement.tr,
+                    MyStrings.locationValue.tr,
                     trailing: Icon(Icons.chevron_right, color: MyColor.primaryColor),
                   ),
                 ],
@@ -127,7 +127,7 @@ class DeviceInformation extends StatelessWidget {
 
             // Second Card (Network, Signal, IP, etc.)
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(
                 color: MyColor.colorWhite,
                 borderRadius: BorderRadius.circular(12),
@@ -144,32 +144,32 @@ class DeviceInformation extends StatelessWidget {
               child: Column(
                 children: [
                   _infoTile(
-                    MyStrings.network.tr, // Using string constant
-                    MyStrings.networkValue.tr, // Using string constant
+                    MyStrings.network.tr,
+                    MyStrings.networkValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.signalStrength.tr, // Using string constant
-                    MyStrings.signalStrengthValue.tr, // Using string constant
+                    MyStrings.signalStrength.tr,
+                    MyStrings.signalStrengthValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.ip.tr, // Using string constant
-                    MyStrings.ipValue.tr, // Using string constant
+                    MyStrings.ip.tr,
+                    MyStrings.ipValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.macAddress.tr, // Using string constant
-                    MyStrings.macAddressValue.tr, // Using string constant
+                    MyStrings.macAddress.tr,
+                    MyStrings.macAddressValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.timezones.tr, // Using string constant
-                    MyStrings.timezoneValue.tr, // Using string constant
+                    MyStrings.timezones.tr,
+                    MyStrings.timezoneValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.devicePlatform.tr, // Using string constant
-                    MyStrings.devicePlatformValue.tr, // Using string constant
+                    MyStrings.devicePlatform.tr,
+                    MyStrings.devicePlatformValue.tr,
                   ),
                   _infoTile(
-                    MyStrings.deviceVersion.tr, // Using string constant
-                    MyStrings.deviceVersionValue.tr, // Using string constant
+                    MyStrings.deviceVersion.tr,
+                    MyStrings.deviceVersionValue.tr,
                     trailing: Icon(Icons.chevron_right, color: MyColor.primaryColor),
                   ),
                 ],

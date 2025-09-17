@@ -26,7 +26,7 @@ class MotionDetectionAlertPlan extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: "${MyStrings.deviseshare.tr}",
+          text: "${MyStrings.timeperiodsetting.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,

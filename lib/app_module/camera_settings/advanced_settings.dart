@@ -26,7 +26,7 @@ class AdvancedSettings extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.imagesettings.tr,
+          text: MyStrings.advancedsettings.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,

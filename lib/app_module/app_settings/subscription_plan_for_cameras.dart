@@ -1,5 +1,8 @@
+import 'package:campro/utils/custom_widget/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../utils/Fonts/AppDimensions.dart';
+import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/my_color.dart';
 import 'app_setting_controller /app_setting_controller.dart';
 
@@ -29,8 +32,12 @@ class SubscriptionPlanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Subscription Plan",
-            style: TextStyle(color: Colors.black)),
+        title:  AppText(
+          text: "${MyStrings.subscriptionplan.tr}",
+          size: AppDimensions.FONT_SIZE_16,
+          fontWeight: FontWeight.w600,
+          color: MyColor.primaryColor,
+        ),
         leading: const BackButton(color: Colors.black),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -77,8 +84,10 @@ class SubscriptionPlanPage extends StatelessWidget {
                           ),
                         ),
                         child: Column(
+
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
+
                           children: [
                             Text(
                               mainName,
@@ -112,7 +121,7 @@ class SubscriptionPlanPage extends StatelessWidget {
 
             //  Plans List
             SizedBox(
-              height: 110,
+              height: 130, // Increased height to accommodate extra price
               child: Obx(() {
                 final categoryIndex = controller.selectedCategoryIndex.value;
                 final plans = controller.categories[categoryIndex]["plans"] as List;
@@ -121,23 +130,25 @@ class SubscriptionPlanPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: plans.length,
                   itemBuilder: (context, index) {
-
-
                     return GestureDetector(
                       onTap: () {
                         controller.selectedPlanIndex.value = index;
                       },
-                      child: Obx(()=>Container(
-                        width: Get.width*0.34,
+                      child: Obx(() => Container(
+                        width: Get.width * 0.36,
                         margin: const EdgeInsets.only(right: 12),
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color:controller.selectedPlanIndex.value==index? Colors.red : Colors.grey.shade400,
+                            color: controller.selectedPlanIndex.value == index
+                                ? Colors.red
+                                : Colors.grey.shade400,
                             width: 1,
                           ),
                           borderRadius: BorderRadius.circular(12),
-                          color:controller.selectedPlanIndex.value==index? Colors.red.withOpacity(0.1) : Colors.white,
+                          color: controller.selectedPlanIndex.value == index
+                              ? Colors.red.withOpacity(0.1)
+                              : Colors.white,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -150,13 +161,14 @@ class SubscriptionPlanPage extends StatelessWidget {
                                   plans[index]["title"].toString(),
                                   style: TextStyle(
                                     fontWeight: FontWeight.w600,
-                                    color: controller.selectedPlanIndex.value==index? MyColor.secondaryColor : MyColor.primaryColor,
+                                    color: controller.selectedPlanIndex.value == index
+                                        ? MyColor.secondaryColor
+                                        : MyColor.primaryColor,
                                   ),
                                 ),
-                                // Round checkbox with small size
                                 SizedBox(
-                                  width: 12, // Small size
-                                  height: 12, // Small size
+                                  width: 12,
+                                  height: 12,
                                   child: Checkbox(
                                     value: controller.selectedPlanIndex.value == index,
                                     onChanged: (bool? value) {
@@ -166,21 +178,38 @@ class SubscriptionPlanPage extends StatelessWidget {
                                     },
                                     activeColor: Colors.red,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10), // Fully round
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
-                                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // Makes it smaller
+                                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                   ),
                                 ),
                               ],
                             ),
                             Spacer(),
-                            Text(
-                              plans[index]["price"].toString(),
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: controller.selectedPlanIndex.value==index? Colors.red : Colors.black54,
-                              ),
+                            // First price
+                            Row(
+                              children: [
+                                Text(
+                                  plans[index]["price"].toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: controller.selectedPlanIndex.value == index
+                                        ? Colors.red
+                                        : Colors.black54,
+                                  ),
+                                ),
+                                // Second price - ADDED THIS
+                                Text(
+                                  plans[index]["time"].toString(),
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: controller.selectedPlanIndex.value == index
+                                        ? Colors.red.withOpacity(0.8)
+                                        : Colors.black54,
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -190,7 +219,13 @@ class SubscriptionPlanPage extends StatelessWidget {
                 );
               }),
             ),
-
+            const SizedBox(height: 20),
+            AppText(
+              text: "${MyStrings.automaticallyrenewseveryyear.tr}",
+              size: AppDimensions.FONT_SIZE_10,
+              fontWeight: FontWeight.w500,
+              color: MyColor.primaryColor,
+            ),
             const SizedBox(height: 20),
 
             //  Details Card

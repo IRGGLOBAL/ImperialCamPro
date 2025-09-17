@@ -12,8 +12,8 @@ class MarqueeText extends StatefulWidget {
     Key? key,
     required this.text,
     required this.style,
-    this.scrollSpeed = 20.0,
-    this.updateInterval = const Duration(milliseconds: 30),
+    this.scrollSpeed = 30.0,
+    this.updateInterval = const Duration(milliseconds: 490),
     this.spacing = 10.0,
   }) : super(key: key);
 
@@ -34,7 +34,7 @@ class _MarqueeTextState extends State<MarqueeText> {
   }
 
   void _startAutoScroll() {
-    const duration = Duration(milliseconds: 50);
+    const duration = Duration(milliseconds: 80);
     _autoScrollTimer = Timer.periodic(duration, (timer) {
 
       if (_userHasInteracted || !_scrollController.hasClients) return;

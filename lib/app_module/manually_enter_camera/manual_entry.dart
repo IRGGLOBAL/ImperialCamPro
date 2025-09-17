@@ -43,7 +43,40 @@ class ManualEntry extends StatelessWidget {
           padding: AppPaddings.defaultPadding,
           child: Column(
             children: [
+              AppText(
+                text: "${MyStrings.searchingfornearbydevices.tr}",
+                size: AppDimensions.FONT_SIZE_16,
+                fontWeight: FontWeight.w600,
+                color: MyColor.primaryColor,
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 5,),
+              Row(
+                children: [
+                  AppText(
+                    text: "${MyStrings.pleasemakesurethedeviceisin.tr}",
+                    size: AppDimensions.FONT_SIZE_10,
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.primaryColor,
+                    textAlign: TextAlign.center,
+                  ),
+                  AppText(
+                    text: "${MyStrings.distributionnetworkstatus.tr}",
+                    size: AppDimensions.FONT_SIZE_10,
+                    fontWeight: FontWeight.w500,
+                    color: MyColor.secondaryColor,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
               Icon(Icons.bluetooth, size: 80, color: MyColor.secondaryColor),
+              AppText(
+                text: "${MyStrings.manual.tr}",
+                size: AppDimensions.FONT_SIZE_12,
+                fontWeight: FontWeight.w500,
+                color: MyColor.primaryColor,
+                textAlign: TextAlign.center,
+              ),
               SizedBox(height: 20),
               Expanded(child: _buildMainLayout()),
             ],

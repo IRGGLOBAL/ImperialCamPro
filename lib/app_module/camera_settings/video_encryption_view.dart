@@ -25,7 +25,7 @@ class VideoEncryptionView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: "${MyStrings.wirelesschime.tr}",
+          text: "${MyStrings.videoencryption.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,

@@ -138,8 +138,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   AppText(
-                    text: MyStrings.welcomeback.tr,
-                    size: AppDimensions.FONT_SIZE_14, // or use 14 directly
+                    text: MyStrings.password.tr,
+                    size: AppDimensions.FONT_SIZE_14,
                     fontWeight: FontWeight.w500,
                     color: MyColor.primaryColor,
                     textAlign: TextAlign.left,

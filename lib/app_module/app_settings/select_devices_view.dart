@@ -29,7 +29,7 @@ class SelectDevicesView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: MyStrings.memberinfo.tr,
+          text: MyStrings.selectdevice.tr,
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
@@ -67,7 +67,7 @@ class SelectDevicesView extends StatelessWidget {
                   hasShadow: false,
                   onTap: () {
                    // Get.to(ManualEntry());
-                    Get.to(SubscriptionPlanPage());
+                    Get.to(ManualEntry());
                   },
                   elevation: 0,
                   borderWidth: 0,

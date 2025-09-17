@@ -42,7 +42,7 @@ class ManualEntryController extends GetxController {
       ],
       "screen3": [
         MyStrings.pleaseresetthedevice.tr,
-        MyStrings.batterycameraresetbuttontext.tr,
+        MyStrings.adddoorbellcameranextsubtitletwo.tr,
       ],
     },
     "Power Plug Camera": {
@@ -57,7 +57,7 @@ class ManualEntryController extends GetxController {
     },
     "Baby Monitor": {
       "screen1": [
-        MyStrings.holdthedevicepowerbutton.tr,
+        MyStrings.adddoorbellcameratitle.tr,
         MyStrings.pressthebatterycamerabuttontowakeup.tr,
       ],
       "screen2": [
@@ -67,7 +67,7 @@ class ManualEntryController extends GetxController {
     },
     "Floodlight Camera": {
       "screen1": [
-        MyStrings.holdthedevicepowerbutton.tr,
+        MyStrings.adddoorbellcameratitle.tr,
         MyStrings.powerplugincamerasubtitle.tr,
       ],
       "screen2": [
@@ -77,7 +77,7 @@ class ManualEntryController extends GetxController {
     },
     "Pet Camera": {
       "screen1": [
-        MyStrings.holdthedevicepowerbutton.tr,
+        MyStrings.adddoorbellcameratitle.tr,
         MyStrings.powerplugincamerasubtitle.tr,
       ],
       "screen2": [

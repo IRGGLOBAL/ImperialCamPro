@@ -27,7 +27,7 @@ class FamilyManagementView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: "${MyStrings.cloudstorageservices.tr}",
+          text: "${MyStrings.familymanagement.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,

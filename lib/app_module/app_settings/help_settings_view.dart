@@ -1,7 +1,5 @@
-import 'package:campro/app_module/app_settings/family_management_view.dart';
 import 'package:campro/app_module/app_settings/paid_subscription_view.dart';
 import 'package:campro/app_module/app_settings/power_plugin_camera.dart';
-import 'package:campro/app_module/app_settings/share_devices_view.dart';
 import 'package:campro/utils/custom_widget/my_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,9 +8,7 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Images/my_images.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
-import '../camera_settings/general_settings_view.dart';
 import 'account_view.dart';
-import 'album_settings_view.dart';
 import 'app_function_experience.dart';
 import 'app_setting_controller /app_setting_controller.dart';
 import 'baby_monitor_view.dart';
@@ -21,6 +17,7 @@ import 'doorbell_help_setting_view.dart';
 import 'feedback_view.dart';
 import 'four_g_camera_view.dart';
 
+
 class HelpSettingsView extends StatelessWidget {
    HelpSettingsView({Key? key}) : super(key: key);
 
@@ -28,7 +25,9 @@ class HelpSettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return
+      Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -37,20 +36,21 @@ class HelpSettingsView extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
           onPressed: () => Get.back(),
         ),
-        title: AppText(
-          text: "${MyStrings.settings.tr}",
+        title:
+        AppText(
+          text: "${MyStrings.selectdevice.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
         ),
         backgroundColor: Colors.white,
         surfaceTintColor: MyColor.transparentColor,
-
         iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
+        child:
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Obx(() => SizedBox(
@@ -74,7 +74,11 @@ class HelpSettingsView extends StatelessWidget {
                           color:  MyColor.primaryColor.withOpacity(0.05) ,
                           width: 1.5,
                         ), ),
-                      child: Column(
+
+                      child:
+
+                      Column(
+
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [

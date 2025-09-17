@@ -459,8 +459,8 @@ class AppSettingController extends GetxController {
     [
       {'question': '${MyStrings.paidsubscriptionque3.tr}', 'answer': '${MyStrings.paidsubscriptionans3.tr}'},
       {'question': '${MyStrings.paidsubscriptionque4.tr}', 'answer': '${MyStrings.paidsubscriptionans4.tr}'},
+      {'question': '${MyStrings.paidsubscriptionque6.tr}', 'answer': '${MyStrings.paidsubscriptionans7.tr}'},
       {'question': '${MyStrings.paidsubscriptionque5.tr}', 'answer': '${MyStrings.paidsubscriptionans5.tr}'},
-
     ],
     // Items for second tile
     [
@@ -530,7 +530,8 @@ class AppSettingController extends GetxController {
       "plans": [
         {
           "title": "Annually",
-          "price": "US\$69.99/year",
+          "price": "US\$69.99",
+          "time":"/year",
           "details": [
             "All basic features",
             "Person & vehicle recognition, animals & package detection",
@@ -540,7 +541,8 @@ class AppSettingController extends GetxController {
         },
         {
           "title": "Monthly",
-          "price": "US\$6.99/month",
+          "price": "US\$6.99",
+          "time":"/month",
           "details": [
             "All basic features",
             "Person & vehicle recognition, animals & package detection",
@@ -556,7 +558,8 @@ class AppSettingController extends GetxController {
       "plans": [
         {
           "title": "Annually",
-          "price": "US\$49.99/year",
+          "price": "US\$49.99",
+          "time":"/year",
           "details": [
             "30-days event based cloud storage",
             "Motion and sound alerts",
@@ -565,7 +568,8 @@ class AppSettingController extends GetxController {
         },
         {
           "title": "Monthly",
-          "price": "US\$4.99/month",
+          "price": "US\$4.99/",
+          "time":"/month",
           "details": [
             "30-days event based cloud storage",
             "Motion and sound alerts",
@@ -580,7 +584,8 @@ class AppSettingController extends GetxController {
       "plans": [
         {
           "title": "Annually",
-          "price": "US\$39.99/year",
+          "price": "US\$39.99",
+          "time":"/year",
           "details": [
             "7-days event based cloud storage",
             "Motion and sound alerts",
@@ -589,7 +594,8 @@ class AppSettingController extends GetxController {
         },
         {
           "title": "Monthly",
-          "price": "US\$3.99/month",
+          "price": "US\$3.99",
+          "time":"/month",
           "details": [
             "7-days event based cloud storage",
             "Motion and sound alerts",
@@ -603,7 +609,8 @@ class AppSettingController extends GetxController {
       "plans": [
         {
           "title": "Annually",
-          "price": "US\$149.99/year",
+          "price": "US\$149.99",
+          "time":"/year",
           "details": [
             "30-days-continuous cloud storage",
             "Motion and sound alerts",
@@ -612,7 +619,8 @@ class AppSettingController extends GetxController {
         },
         {
           "title": "Monthly",
-          "price": "US\$14.99/month",
+          "price": "US\$14.99",
+          "time":"/moth",
           "details": [
             "30-days-continuous cloud storage",
             "Motion and sound alerts",

@@ -9,7 +9,9 @@ import '../../utils/Fonts/AppDimensions.dart';
 import '../../utils/Images/my_images.dart';
 import '../../utils/Widgets/AppText.dart';
 import '../../utils/custom_widget/strings.dart';
+import '../camera_settings/cloud_storage_service_detail.dart';
 import '../camera_settings/general_settings_view.dart';
+import '../device_information/device_information.dart';
 import 'album_settings_view.dart';
 import 'app_general_settings.dart';
 import 'help_settings_view.dart';
@@ -79,61 +81,66 @@ class AppSettings extends StatelessWidget {
             const SizedBox(height: 20),
 
             // Cloud Storage Card
-            Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: MyColor.colorWhite,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.shade200,
-                    blurRadius: 3,
-                    spreadRadius: 0,
-                    offset: const Offset(2, 2),
-                  ),
-                ],
-                border: Border.all(color: Colors.grey.shade200),
-              ),
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    MyImages.cloudsettings,
-                    width: 32,
-                    height: 32,
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppText(
-                          text: "${MyStrings.cloudstorage.tr}",
-                          size: AppDimensions.FONT_SIZE_14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                        ),
-                        const SizedBox(height: 4),
-                        AppText(
-                          text:
-                          "${MyStrings.annualdaycyclestorage.tr}",
-                          size: AppDimensions.FONT_SIZE_11,
-                          fontWeight: FontWeight.w400,
-                          color: MyColor.hinttext,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 6),
-                        AppText(
-                          text: "${MyStrings.canbind.tr} 3 ${MyStrings.devices.tr}",
-                          size: AppDimensions.FONT_SIZE_11,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.red,
-                        ),
-                      ],
+            GestureDetector(
+              onTap: () {
+                Get.to(CloudStorageServiceDetail());
+              },
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: MyColor.colorWhite,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.shade200,
+                      blurRadius: 3,
+                      spreadRadius: 0,
+                      offset: const Offset(2, 2),
                     ),
-                  ),
-                  const Icon(Icons.chevron_right, color: Colors.black),
-                ],
+                  ],
+                  border: Border.all(color: Colors.grey.shade200),
+                ),
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      MyImages.cloudsettings,
+                      width: 32,
+                      height: 32,
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            text: "${MyStrings.cloudstorage.tr}",
+                            size: AppDimensions.FONT_SIZE_14,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                          const SizedBox(height: 4),
+                          AppText(
+                            text:
+                            "${MyStrings.annualdaycyclestorage.tr}",
+                            size: AppDimensions.FONT_SIZE_11,
+                            fontWeight: FontWeight.w400,
+                            color: MyColor.hinttext,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 6),
+                          AppText(
+                            text: "${MyStrings.canbind.tr} 3 ${MyStrings.devices.tr}",
+                            size: AppDimensions.FONT_SIZE_11,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.chevron_right, color: Colors.black),
+                  ],
+                ),
               ),
             ),
 

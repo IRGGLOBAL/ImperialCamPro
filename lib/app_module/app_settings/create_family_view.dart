@@ -24,7 +24,7 @@ class CreateFamilyView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: "${MyStrings.familysettings.tr}",
+          text: "${MyStrings.createfamily.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,

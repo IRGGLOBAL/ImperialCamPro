@@ -50,6 +50,7 @@ class HuntingCameraFirstScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Image placeholder
+
               Container(
                 height: 150,
                 width: double.infinity,

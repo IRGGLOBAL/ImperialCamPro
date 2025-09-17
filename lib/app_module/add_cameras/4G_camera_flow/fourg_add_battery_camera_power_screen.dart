@@ -62,76 +62,88 @@ class FourgAddBatteryUnifiedScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Main title (if exists)
-              if (currentScreen['mainText'] != null && currentScreen['mainText'].isNotEmpty)
-                AppText(
-                  text: currentScreen['mainText'],
-                  size: AppDimensions.FONT_SIZE_16,
-                  fontWeight: FontWeight.w600,
-                  color: MyColor.primaryColor,
-                  textAlign: TextAlign.center,
-                ),
+              // Scrollable content area
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Main title (if exists)
+                      if (currentScreen['mainText'] != null && currentScreen['mainText'].isNotEmpty)
+                        AppText(
+                          text: currentScreen['mainText'],
+                          size: AppDimensions.FONT_SIZE_16,
+                          fontWeight: FontWeight.w600,
+                          color: MyColor.primaryColor,
+                          textAlign: TextAlign.center,
+                        ),
 
-              if (currentScreen['mainText'] != null && currentScreen['mainText'].isNotEmpty)
-                const SizedBox(height: 12),
+                      if (currentScreen['mainText'] != null && currentScreen['mainText'].isNotEmpty)
+                        const SizedBox(height: 12),
 
-              // Sub text or bullet points
-              if (currentScreen['showBullets'] && currentScreen['bullets'] != null)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (var bullet in currentScreen['bullets'])
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 6),
-                        child: Row(
+                      // Sub text or bullet points
+                      if (currentScreen['showBullets'] && currentScreen['bullets'] != null)
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("• ",
-                                style: TextStyle(fontSize: 16, color: MyColor.primaryColor)),
-                            Expanded(
-                              child: Text(
-                                bullet,
-                                style: const TextStyle(fontSize: 14, color: Colors.black87),
+                            for (var bullet in currentScreen['bullets'])
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 6),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text("• ",
+                                        style: TextStyle(fontSize: 16, color: MyColor.primaryColor)),
+                                    Expanded(
+                                      child: Text(
+                                        bullet,
+                                        style: const TextStyle(fontSize: 14, color: Colors.black87),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
                           ],
-                        ),
-                      ),
-                  ],
-                )
-              else if (currentScreen['subText'] != null && currentScreen['subText'].isNotEmpty)
-                AppText(
-                  text: currentScreen['subText'],
-                  size: AppDimensions.FONT_SIZE_12,
-                  fontWeight: FontWeight.w500,
-                  color: MyColor.primaryColor,
-                  textAlign: TextAlign.start,
-                ),
-
-              // Help text with icon
-              if (currentScreen['showHelpText'] && currentScreen['helpText'] != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        currentScreen['helpText'],
-                        style: TextStyle(
-                          color: MyColor.secondaryColor,
-                          fontSize: 14,
+                        )
+                      else if (currentScreen['subText'] != null && currentScreen['subText'].isNotEmpty)
+                        AppText(
+                          text: currentScreen['subText'],
+                          size: AppDimensions.FONT_SIZE_12,
                           fontWeight: FontWeight.w500,
+                          color: MyColor.primaryColor,
+                          textAlign: TextAlign.start,
                         ),
-                      ),
-                      Icon(Icons.help_outline, color: MyColor.secondaryColor, size: 18),
+
+                      // Help text with icon
+                      if (currentScreen['showHelpText'] && currentScreen['helpText'] != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                currentScreen['helpText'],
+                                style: TextStyle(
+                                  color: MyColor.secondaryColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Icon(Icons.help_outline, color: MyColor.secondaryColor, size: 18),
+                            ],
+                          ),
+                        ),
+
+
                     ],
                   ),
                 ),
+              ),
 
               // Radio option
               if (currentScreen['showRadio'] && currentScreen['radioText'] != null)
                 Padding(
-                  padding: const EdgeInsets.only(top: 100),
+                  padding: const EdgeInsets.only(top: 12),
                   child: Row(
                     children: [
                       Radio(
@@ -149,10 +161,7 @@ class FourgAddBatteryUnifiedScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
-              const Spacer(),
-
-              // Next Button
+              // Next Button (stays at bottom)
               AppButton(
                 buttonName: MyStrings.next.tr,
                 buttonColor: MyColor.secondaryColor,
@@ -175,7 +184,7 @@ class FourgAddBatteryUnifiedScreen extends StatelessWidget {
               const SizedBox(height: 20),
             ],
           ),
-        ),
+        )
       );
     });
   }

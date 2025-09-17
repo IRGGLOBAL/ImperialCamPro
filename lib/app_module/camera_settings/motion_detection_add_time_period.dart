@@ -32,7 +32,7 @@ class MotionDetectionAddTimePeriod extends StatelessWidget {
           children: [
              Text(
               MyStrings.setanalarmplanandthedevicewillonlytrigger.tr,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: MyColor.primaryColor),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),

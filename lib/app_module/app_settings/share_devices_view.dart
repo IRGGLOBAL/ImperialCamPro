@@ -61,9 +61,9 @@ class ShareDevicesView extends StatelessWidget {
                           MyStrings.familyshare.tr,
                           style: TextStyle(
                             color: c.isFamilyShare.value
-                                ? Colors.black
-                                : Colors.grey,
-                            fontWeight: FontWeight.w600,
+                                ? MyColor.primaryColor
+                                : MyColor.primaryColor,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
@@ -91,9 +91,9 @@ class ShareDevicesView extends StatelessWidget {
                           MyStrings.deviseshare.tr,
                           style: TextStyle(
                             color: !c.isFamilyShare.value
-                                ? Colors.black
-                                : Colors.grey,
-                            fontWeight: FontWeight.w600,
+                                ? MyColor.primaryColor
+                                : MyColor.primaryColor,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),

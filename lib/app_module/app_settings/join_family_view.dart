@@ -26,7 +26,7 @@ class JoinFamilyView extends StatelessWidget {
           onPressed: () => Get.back(),
         ),
         title: AppText(
-          text: "${MyStrings.deviseshare.tr}",
+          text: "${MyStrings.joinfamily.tr}",
           size: AppDimensions.FONT_SIZE_16,
           fontWeight: FontWeight.w600,
           color: MyColor.primaryColor,
