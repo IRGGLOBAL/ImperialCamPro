@@ -250,7 +250,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   // Navigate or call sign up logic
                 } : () {
                  // Get.to(BuyModeBottomNavigationBuyView());
-                  Get.to(BottomNavBarView());
+                  Get.to(() => BottomNavBarView());
                 },
                 elevation: 0, // Remove shadow to match RoundedButton's elevation: 0
                 borderWidth: 0, // No border
@@ -298,7 +298,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      Get.to(LoginScreen());
+                      Get.to(() => LoginScreen());
                     },
                     child:
                     AppText(

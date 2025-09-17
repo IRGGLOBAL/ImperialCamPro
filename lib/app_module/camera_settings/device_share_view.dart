@@ -77,7 +77,7 @@ class DeviceShareView extends StatelessWidget {
                     hasShadow: false,
                     buttonWidth: double.infinity,
                     onTap: () {
-                      Get.to(AddDeviceShare());
+                      Get.to(() => AddDeviceShare());
                     },
                     elevation: 0,
                     borderWidth: 0,

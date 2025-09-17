@@ -342,7 +342,7 @@ class MyHomePage extends StatelessWidget {
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         onPressed: () {
-                                          Get.to(ManualEntry());
+                                          Get.to(() =>ManualEntry());
                                         },
                                         style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.white,
@@ -462,7 +462,7 @@ class CameraCard extends StatelessWidget {
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTap: () {
-              Get.to(CameraView(/*cameraName: '',*/));
+              Get.to(() =>CameraView(/*cameraName: '',*/));
             },
             child: Container(
               height: 160,

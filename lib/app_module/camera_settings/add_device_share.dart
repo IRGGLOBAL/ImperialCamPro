@@ -91,7 +91,7 @@ class AddDeviceShare extends StatelessWidget {
                   GestureDetector(
                     behavior: HitTestBehavior.translucent,
                     onTap: () {
-                      Get.to(AddDeviceEnterAccount());
+                      Get.to(() => AddDeviceEnterAccount());
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),

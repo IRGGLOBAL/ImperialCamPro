@@ -397,7 +397,7 @@ class ManualEntryController extends GetxController {
       currentIndex.value++;
     } else {
       // This is the final screen - navigate to FourgSearchNearbyDevices
-      Get.to(FourgSearchNearbyDevices());
+      Get.to(() =>FourgSearchNearbyDevices());
     }
   }
 
@@ -449,7 +449,7 @@ class ManualEntryController extends GetxController {
       currentIndex1.value++;
     } else {
       // This is the final screen - navigate to FourgSearchNearbyDevices
-      Get.to(FourgSearchNearbyDevices());
+      Get.to(() =>FourgSearchNearbyDevices());
     }
   }
 

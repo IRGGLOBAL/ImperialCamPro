@@ -35,7 +35,7 @@ class CameraView extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings, color: Colors.black),
             onPressed: () {
-              Get.to(SettingView());
+              Get.to(() =>SettingView());
             },
           ),
         ],

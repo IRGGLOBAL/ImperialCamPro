@@ -38,7 +38,7 @@ class CloudStorageSetting extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: MyColor.secondaryColor,
               onTap: (){
-                Get.to(MyOrders());
+                Get.to(() => MyOrders());
               },
             ),
           ),
@@ -57,7 +57,7 @@ class CloudStorageSetting extends StatelessWidget {
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: (){
-                Get.to(CloudStorageServiceDetail());
+                Get.to(() => CloudStorageServiceDetail());
               },
               child: Container(
                 padding: const EdgeInsets.all(16),

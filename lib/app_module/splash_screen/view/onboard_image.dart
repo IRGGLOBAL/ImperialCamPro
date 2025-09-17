@@ -206,7 +206,7 @@ class _OnboardImageState extends State<OnboardImage> {
                               fontWeight: FontWeight.w500,
                               hasShadow: false,
                               onTap: () {
-                                  Get.to(() => const SignUpScreen());
+                                  Get.to(() =>  SignUpScreen());
                               },
                               elevation: 0,
                               borderWidth: 0,

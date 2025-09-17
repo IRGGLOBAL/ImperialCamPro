@@ -58,7 +58,7 @@ class SettingView extends StatelessWidget {
             GestureDetector(
               behavior: HitTestBehavior.translucent,
               onTap: (){
-               Get.to(DeviceInformation()) ;
+               Get.to(() => DeviceInformation()) ;
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -151,15 +151,15 @@ class SettingView extends StatelessWidget {
               children: [
                 _gridItem(MyImages.cloudstorage, MyStrings.cloudstorageservice.tr,
                     onTap: () {
-                      Get.to(CloudStorageSetting());
+                      Get.to(() => CloudStorageSetting());
                     },
                 ),
                 _gridItem(MyImages.aiintelligent, MyStrings.aiintelligentanalysis.tr,
-                  onTap: () {Get.to(AiIntelligentAnalysis());},),
+                  onTap: () {Get.to(() => AiIntelligentAnalysis());},),
                 _gridItem(MyImages.alarmmanagement, MyStrings.alarmmanagement.tr,
-                  onTap: () {Get.to(AlarmManagementView());},),
+                  onTap: () {Get.to(() => AlarmManagementView());},),
                 _gridItem(MyImages.deviceshare, MyStrings.deviceshare.tr,
-                  onTap: () {Get.to(DeviceShareView());},),
+                  onTap: () {Get.to(() => DeviceShareView());},),
               ],
             ),
 
@@ -184,11 +184,11 @@ class SettingView extends StatelessWidget {
               child: Column(
                 children: [
                   _settingsTile(MyImages.imagesettings, MyStrings.imagesettings.tr,
-                    onTap: () {Get.to(ImageSettings());},),
+                    onTap: () {Get.to(() => ImageSettings());},),
                   _settingsTile(MyImages.soundsettings, MyStrings.soundsettings.tr,
-                    onTap: () {Get.to(SoundSettingsView());},),
+                    onTap: () {Get.to(() => SoundSettingsView());},),
                   _settingsTile(MyImages.chimesettings, MyStrings.chimesettings.tr,
-                    onTap: () {Get.to(ChimeSettings());},),
+                    onTap: () {Get.to(() => ChimeSettings());},),
                 ],
               ),
             ),
@@ -213,9 +213,9 @@ class SettingView extends StatelessWidget {
                   _settingsTile(MyImages.voicemessage, MyStrings.voicemessage.tr,
                     onTap: () {},),
                   _settingsTile(MyImages.videoencryption, MyStrings.videoencryption.tr,
-                    onTap: () {Get.to(VideoEncryptionView());},),
+                    onTap: () {Get.to(() =>VideoEncryptionView());},),
                   _settingsTile(MyImages.recordingmanagement, MyStrings.recordingmanagement.tr,
-                    onTap: () {Get.to(RecordingManagementView());},),
+                    onTap: () {Get.to(() =>RecordingManagementView());},),
 
                 ],
               ),
@@ -239,9 +239,9 @@ class SettingView extends StatelessWidget {
               child: Column(
                 children: [
                   _settingsTile(MyImages.generalsettings, MyStrings.generalsettings.tr,
-                    onTap: () {Get.to(GeneralSettingsView());},),
+                    onTap: () {Get.to(() =>GeneralSettingsView());},),
                   _settingsTile(MyImages.advancedservice, MyStrings.advancedservice.tr,
-                    onTap: () {Get.to(AdvancedSettings());},),
+                    onTap: () {Get.to(() =>AdvancedSettings());},),
                 ],
               ),
             ),

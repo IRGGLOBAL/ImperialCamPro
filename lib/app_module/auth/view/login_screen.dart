@@ -312,7 +312,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold,
                           color: MyColor.secondaryColor,
                           onTap: (){
-                            Get.to(ForgotPassword());
+                            Get.to(() => ForgotPassword());
                           },
                         ),
                         // Login link
@@ -334,7 +334,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.bold,
                               color: MyColor.secondaryColor,
                               onTap: (){
-                                Get.to(SignUpScreen());
+                                Get.to(() => SignUpScreen());
                               },
                             ),
                           ],

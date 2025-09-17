@@ -149,7 +149,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                           hasShadow: false,
                           buttonWidth: double.infinity,
                           onTap:  () {
-                            Get.to(ResetPasswordScreen());
+                            Get.to(() => ResetPasswordScreen());
                           },
                           elevation: 0,
                           borderWidth: 0,
@@ -174,7 +174,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                             GestureDetector(
                               behavior: HitTestBehavior.translucent,
                               onTap: () {
-                                Get.to(SignUpScreen());
+                                Get.to(() => SignUpScreen());
                               },
                               child: AppText(
                                 text: MyStrings.contactus.tr,

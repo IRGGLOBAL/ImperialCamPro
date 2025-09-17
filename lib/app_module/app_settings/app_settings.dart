@@ -83,7 +83,7 @@ class AppSettings extends StatelessWidget {
             // Cloud Storage Card
             GestureDetector(
               onTap: () {
-                Get.to(CloudStorageServiceDetail());
+                Get.to(() => CloudStorageServiceDetail());
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -154,7 +154,7 @@ class AppSettings extends StatelessWidget {
                   border: Border.all(color: Colors.grey.shade200),
                 ),
                 child: _settingsTile(MyImages.aianalysis,"${MyStrings.aiintelligentanalys.tr}",
-                  onTap: () {Get.to(SelectDevicesView());},)),
+                  onTap: () {Get.to(() => SelectDevicesView());},)),
 
              SizedBox(height: 10),
 
@@ -165,7 +165,7 @@ class AppSettings extends StatelessWidget {
                   border: Border.all(color: Colors.grey.shade200),
                 ),
                 child: _settingsTile(MyImages.fourgdata, "${MyStrings.fourgdataplan.tr}",
-                  onTap: () {Get.to(SelectDevicesView());},)),
+                  onTap: () {Get.to(() => SelectDevicesView());},)),
 
             SizedBox(height: 10),
 
@@ -176,7 +176,7 @@ class AppSettings extends StatelessWidget {
                   border: Border.all(color: Colors.grey.shade200),
                 ),
                 child: _settingsTile(MyImages.familymanagement, "${MyStrings.myservice.tr}",
-                  onTap: () {Get.to(MyServiceView());},)),
+                  onTap: () {Get.to(() => MyServiceView());},)),
 
             const SizedBox(height: 10),
             Container(
@@ -188,13 +188,13 @@ class AppSettings extends StatelessWidget {
               child: Column(
                 children: [
                   _settingsTile(MyImages.familymanagement, "${MyStrings.familymanagement.tr}",
-                    onTap: () {Get.to(FamilyManagementView());},),
+                    onTap: () {() => Get.to(FamilyManagementView());},),
                   _settingsTile(MyImages.sharesettings, "${MyStrings.share.tr}",
-                    onTap: () {Get.to(ShareDevicesView());},),
+                    onTap: () {Get.to(() => ShareDevicesView());},),
                   _settingsTile(MyImages.albumsettings, "${MyStrings.album.tr}",
-                    onTap: () {Get.to(AlbumSettingsView());},),
+                    onTap: () {() => Get.to(() => AlbumSettingsView());},),
                   _settingsTile(MyImages.helpsetting, "${MyStrings.help.tr}",
-                    onTap: () {Get.to(HelpSettingsView());},),
+                    onTap: () {Get.to(() => HelpSettingsView());},),
                 ],
               ),
             ),
@@ -206,7 +206,7 @@ class AppSettings extends StatelessWidget {
                   border: Border.all(color: Colors.grey.shade200),
                 ),
                 child: _settingsTile(MyImages.generalsettings, "${MyStrings.settings.tr}",
-                  onTap: () {Get.to(AppGeneralSettings());},)),
+                  onTap: () {Get.to(() => AppGeneralSettings());},)),
             SizedBox(height: 30),
           ],
         ),

@@ -142,7 +142,7 @@ class _ResetPasswordConfirmationScreenState extends State<ResetPasswordConfirmat
                               fontWeight: FontWeight.bold,
                               color: MyColor.secondaryColor,
                               onTap: (){
-                                Get.to(SignUpScreen());
+                                Get.to(() => SignUpScreen());
                               },
                             ),
                           ],

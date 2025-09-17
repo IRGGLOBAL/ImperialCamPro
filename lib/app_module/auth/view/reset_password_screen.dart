@@ -226,7 +226,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           hasShadow: false,
                           buttonWidth: double.infinity,
                           onTap: () {
-                            Get.to(ResetPasswordConfirmationScreen());
+                            Get.to(() => ResetPasswordConfirmationScreen());
                           },
                           elevation: 0,
                           borderWidth: 0,

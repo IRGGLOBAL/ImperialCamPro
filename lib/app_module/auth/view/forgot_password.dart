@@ -179,7 +179,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           hasShadow: false,
                           buttonWidth: double.infinity,
                           onTap:  () {
-                            Get.to(EmailVerificationScreen());
+                            Get.to(() => EmailVerificationScreen());
                           },
                           elevation: 0,
                           borderWidth: 0,
@@ -204,7 +204,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             GestureDetector(
                               behavior: HitTestBehavior.translucent,
                               onTap: () {
-                                Get.to(SignUpScreen());
+                                Get.to(() => SignUpScreen());
                               },
                               child: AppText(
                                 text: MyStrings.contactus.tr,
