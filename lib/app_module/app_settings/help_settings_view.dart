@@ -85,6 +85,7 @@ class HelpSettingsView extends StatelessWidget {
 
                           SvgPicture.asset(
                             item.svgAsset,
+
                             width: 32,
                             height: 32,
                           ),
